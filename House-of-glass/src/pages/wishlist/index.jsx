@@ -1,4 +1,4 @@
-import {Wishlist} from "src/pages/wishlist/Wishlist.jsx"
+import Wishlist from "pages/wishlist/Wishlist"
 
 
 export {Wishlist}

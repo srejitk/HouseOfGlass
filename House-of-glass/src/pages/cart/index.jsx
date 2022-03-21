@@ -1,4 +1,4 @@
-import Cart from "src/pages/cart/Cart.jsx"
+import Cart from "pages/cart/Cart"
 
 
 export {Cart}

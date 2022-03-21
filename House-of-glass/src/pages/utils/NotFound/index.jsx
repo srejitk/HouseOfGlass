@@ -1,3 +1,3 @@
-import {NotFound} from "src/pages/utils/NotFound/NotFound.jsx"
+import NotFound from "pages/utils/NotFound/NotFound"
 
 export {NotFound}

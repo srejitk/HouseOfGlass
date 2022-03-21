@@ -1,11 +1,7 @@
 import React from 'react';
 import { Routes,Route } from 'react-router-dom';
 import { MockApi } from '../pages/api-response';
-import Cart from '../pages/cart/Cart';
-import Landing from '../pages/landing/Landing';
-import Products from '../pages/products/Listing/Products';
-import NotFound from '../pages/utils/NotFound/NotFound';
-import Wishlist from '../pages/wishlist/Wishlist';
+import { Cart, Landing, Products, Wishlist, NotFound} from "pages/index"
 
 export default function Router() {
   return (

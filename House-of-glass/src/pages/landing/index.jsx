@@ -1,4 +1,4 @@
-import {Landing} from "src/pages/cart/Cart.jsx"
+import Landing from "pages/landing/Landing"
 
 
 export {Landing}

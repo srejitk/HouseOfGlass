@@ -1,4 +1,4 @@
-import {Listing} from "src/pages/products/listing/Listing.jsx"
+import Listing from "pages/products/Listing/Listing"
 
 
 export {Listing}

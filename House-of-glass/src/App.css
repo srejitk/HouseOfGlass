@@ -1,51 +1,64 @@
-.App {
-  text-align: center;
+@import "https://iridescent.netlify.app/main.css";
+:root{
+      /* font colors  */
+      --font-primary: #16162E;
+      --font-gray: #202020;
+      --font-gray-light: #eef0f1;
+  
+      /* backgorund colors  */
+      --background-light: #C5DCFA;
+  
+      /* brand */
+      --brand-color: #0F56B3;
+  
+      /* font */
+      font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.hover-ripple:hover{
+  background-color: var(--background-light);
+  padding: 1rem 0.75rem;
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App{
+  display: grid;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  gap: 20px 10px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4rem auto 12.5rem;
+  grid-template-areas:
+      "navbar"
+      "content"
+      "footer"
+}
+
+.box-shadow-2 {
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.box-shadow-2:hover {
+  box-shadow: 2px 2px 4px rgba(97, 97, 97, 0.18), 4px 4px 8px rgba(97, 97, 97, 0.18);
+  transform: scale(1.1);
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+
+.container{
+  grid-area: content;
+  display: flex;
+  width: 100%;
+  gap:50px;
+}
+
+.container-column{
+  flex-direction:column;}
+
+@media  only screen and (max-width:768px){
+  .App{
+    grid-template-rows: 15rem auto 12.5rem;
+    width: 90%;
   }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
 }

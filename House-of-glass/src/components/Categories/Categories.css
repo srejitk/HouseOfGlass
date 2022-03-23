@@ -1,0 +1,37 @@
+.glass-categories {
+    width: 100vw;
+    height:19rem;
+    background-color: var(--forground-color);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: 2px solid var(--component-grey-01);
+
+}
+
+.glass-categories-container {
+    background-color: var(--foreground-color-2);
+    width: 90%;
+    height: 80%;
+    overflow-x: scroll;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: flex-start;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.glass-categories-title {
+    display: flex;
+    background-color: var(--foreground-color);
+    flex-direction: column;
+    height: 80%;
+    width: 60%;
+    max-width: 80%;
+    padding: 0rem 2rem;
+}
+
+.glass-categories-title>.subtitle-1 {
+    width: 50%;
+
+}

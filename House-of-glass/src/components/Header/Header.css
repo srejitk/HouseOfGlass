@@ -1,0 +1,79 @@
+
+.glass-navbar {
+    grid-area: navbar;
+    width: 100%;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: var(--white);
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+  
+  .glass-logo {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 8px 16px;
+  }
+  
+  .material-icons {
+    font: 24px;
+    border-radius: 16px;
+    padding: 10px;
+  }
+  
+  .glass-hero-text {
+    margin: 0 0 0 2rem;
+    align-self: center;
+    padding: 0.5rem 1rem;
+    font-weight: 700!important;
+  
+  }
+  
+  .glass-links {
+    margin: 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    width: fit-content;
+    padding: 0.5rem;
+    border-radius: 64px;
+  }
+  
+  .glass-search-input {
+    background-color: var(--white);
+    outline: 2px solid var(--component-grey-05);
+    width: 600px;
+    margin-left: 4rem;
+    border-radius: 64px;
+  }
+  
+  .glass-search-icon {
+    background-color: white;
+  }
+
+
+@media  only screen and (max-width:768px){
+  .glass-navbar{
+    grid-area: navbar;
+    width: 100vw;
+    height:15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .glass-logo{
+    width:100%;
+  }
+
+  .glass-search{
+    width:90%;
+  }
+  .glass__header--links{
+    width: 100%;
+  }
+}

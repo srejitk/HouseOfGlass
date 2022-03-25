@@ -62,3 +62,18 @@
     width: 90%;
   }
 }
+
+.products-container{
+  gap: 1rem;
+  padding:2rem;
+
+}
+
+/* Filter Pills */
+.pill{
+  border: 2px solid black;
+  width: fit-content;
+  padding: 0.25rem 0.75rem;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}

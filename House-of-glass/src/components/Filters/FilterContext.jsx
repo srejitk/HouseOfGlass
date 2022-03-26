@@ -5,7 +5,11 @@ import { products } from "backend/db/products";
 
 const FilterContext = createContext();
 
-const useFilter = useContext(FilterContext);
+
+//useContext in itself a func , and useFilter is a custom Hook so you have to assign it as a func instead of making it a variable
+const useFilter = () => useContext(FilterContext);
+
+
 // const [data, setData]=useState([]);
 
 
@@ -19,14 +23,15 @@ const useFilter = useContext(FilterContext);
 //     },[]
 //     )
 
+
+
 const FilterProvider = ({children})=>{
-    const [state,dispatch]=useReducer(FilterReducer,{sortBy:"",fastDelivery:"",outOfStock:""})
+    const [state,dispatch]=useReducer(FilterReducer,{sortBy:"",fastDelivery:false,outOfStock:false,categoryState:[],minPrice:0})
     
 
     const finalProductList = getProductList(state,products);
-    console.log(productList)
 
-    return <FilterContext.Provider value={{state,dispatch,finalProductList}} >{children}</FilterContext.Provider>
+    return (<FilterContext.Provider value={{state,dispatch,finalProductList}} >{children}</FilterContext.Provider>)
 }
 
 export {useFilter, FilterProvider}

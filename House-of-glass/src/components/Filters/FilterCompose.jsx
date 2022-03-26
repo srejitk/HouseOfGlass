@@ -7,6 +7,7 @@ const hightolow =(state,array)=>{
 
 const lowtohigh =(state,array)=>{
     let sortedList = state.sortBy==="LOWTOHIGH"?[...array].sort((a,b)=>Number(b.price)- Number(a.price)):[...array]
+    return sortedList
 }
 
 const fastdelivery = (state,array)=>{
@@ -26,13 +27,30 @@ const applyFilters = (state,...args)=>(ProductList)=>{
     },ProductList)
 }
 
+const applyCategories = (state,array)=>{
+    console.log("state",state)
+    console.log("array",array)
+    const {categoryState} = state;
+    if ( categoryState.length===0){
+        return array;
+    }else{
+        return array.filter((item)=>categoryState.includes(item.brand))
+    }
+}
+
+const priceRange = (state, array)=>{
+    const {minPrice}=state;
+    return array.filter((item)=>item.price>=minPrice)
+}
 
 const getProductList =(state,ProductList)=> applyFilters(
     state,
     hightolow,
     lowtohigh,
     fastdelivery,
-    outofstock
+    outofstock,
+    applyCategories,
+    priceRange
 )(ProductList)
 
 export {getProductList}

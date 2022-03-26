@@ -3,9 +3,9 @@ import React from 'react'
 import "./VerticalCard.css"
 
 
-export default function VerticalCard({CardTitle,ItemPrice,ItemDiscount,DeliveryType,ItemImage,ItemRating}) {
+export default function VerticalCard({CardTitle,ItemPrice,ItemDiscount,DeliveryType,ItemImage,ItemRating,ItemID}) {
   return (
-    <div className=" card card--vertical box-shadow">
+    <div className=" card card--vertical box-shadow" >
     <div className="card__cover cover--vertical image--responsive">
       <img src={ItemImage} />
       <span className="material-icons card__icon">favorite</span>

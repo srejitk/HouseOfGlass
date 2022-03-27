@@ -10,12 +10,7 @@ export const FilterReducer = (state, action)=>{
         case "CATEGORY":
             const {categoryState} = state;
             if(categoryState.includes(action.payload)){
-                // return {...state, categoryState: [...categoryState,action.payload]}
-                // TOH MERE CARTEGORY LIST MAI 4 BRANDS RAHENGE
-                //IF THE CATEGORY IS ALREADY THERE , THEN WE WANT TO REMOVE IT BY FILTERING OUT THAT CATEGORY AND INSERTING ALL OTHER CATEGORIES
                 return {...state, categoryState : categoryState.filter((category)=>category!==action.payload)}
-                // console.log("IF WALA",categoryState)       
-                // return test
             }
             else{
                 return {...state, categoryState: [...categoryState,action.payload]}

@@ -1,5 +1,5 @@
 export const FilterReducer = (state, action)=>{
-    const defaultState = {sortBy:"",fastDelivery:false,outOfStock:false,categoryState:[]}
+    const defaultState = {sortBy:"",fastDelivery:false,outOfStock:false,categoryState:[],minPrice:12000}
     switch(action.type){
         case "SORTBY":
             return {...state,sortBy:action.payload}

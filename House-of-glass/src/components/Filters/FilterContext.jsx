@@ -26,7 +26,7 @@ const useFilter = () => useContext(FilterContext);
 
 
 const FilterProvider = ({children})=>{
-    const [state,dispatch]=useReducer(FilterReducer,{sortBy:"",fastDelivery:false,outOfStock:false,categoryState:[],minPrice:0})
+    const [state,dispatch]=useReducer(FilterReducer,{sortBy:"",fastDelivery:false,outOfStock:false,categoryState:[],minPrice:12000})
     
 
     const finalProductList = getProductList(state,products);

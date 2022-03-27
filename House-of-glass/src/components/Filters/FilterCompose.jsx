@@ -1,12 +1,12 @@
 
 
 const hightolow =(state,array)=>{
-    let sortedList = state.sortBy==="HIGHTOLOW"?[...array].sort((a,b)=>Number(a.price)- Number(b.price)):[...array];
+    let sortedList = state.sortBy==="HIGHTOLOW"?[...array].sort((a,b)=>Number(b.price)- Number(a.price)):[...array];
     return sortedList
 }
 
 const lowtohigh =(state,array)=>{
-    let sortedList = state.sortBy==="LOWTOHIGH"?[...array].sort((a,b)=>Number(b.price)- Number(a.price)):[...array]
+    let sortedList = state.sortBy==="LOWTOHIGH"?[...array].sort((a,b)=>Number(a.price)- Number(b.price)):[...array]
     return sortedList
 }
 
@@ -40,7 +40,7 @@ const applyCategories = (state,array)=>{
 
 const priceRange = (state, array)=>{
     const {minPrice}=state;
-    return array.filter((item)=>item.price>=minPrice)
+    return array.filter((item)=>minPrice>=item.price)
 }
 
 const getProductList =(state,ProductList)=> applyFilters(

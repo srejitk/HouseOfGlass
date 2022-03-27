@@ -43,7 +43,7 @@ export default function Filters() {
     </div>
     <div className="pill  align-center gap20 flex-mid-center">
     <span className="material-icons">production_quantity_limits</span>
-    <label htmlFor="out-of-stock">Exclude Out Of Stock</label>
+    <label htmlFor="out-of-stock">In Stock</label>
     <input 
     type="checkbox" 
     name="OUTOFSTOCK" 
@@ -97,7 +97,7 @@ export default function Filters() {
 
       <div className="pill  align-center gap20 flex-mid-center">
     <span className="material-icons">production_quantity_limits</span>
-    <label htmlFor="category-1">John Jacobs</label>
+    <label htmlFor="category-1">Vincent Chase</label>
     <input 
     type="checkbox" 
     name="CATEGORY" 
@@ -107,12 +107,28 @@ export default function Filters() {
     onChange={(e)=>dispatch({type:"CATEGORY", payload:e.target.value})}/>
       </div>
 </div>
-<label htmlFor='price-range'>Range</label>
-<input id="price-range"type="range" value={state.minPrice} max={12000} min={0} step={500} list="steps" onChange={(e)=>dispatch({type:"PRICERANGE" , payload:e.target.value})}></input>
+
+
+<div className='position-relative category-wrapper'>
+  <div className="category-label-container flex-mid-center">
+    <span className="material-icons">linear_scale</span>
+    <h6 className='subtitle-1'>Range</h6>
+  </div>
+
+  <div className="pill  align-center gap20 flex-mid-center">
+  <input id="price-range"type="range" value={state.minPrice} max={12000} min={1000} step={1000} list="steps" onChange={(e)=>dispatch({type:"PRICERANGE" , payload:e.target.value})}></input>
       
-<datalist id="steps">
-  <option value="1K"/>
-</datalist>
+      <datalist id="steps">
+        <option key ={1000} label="1K" value={1000}></option>
+        <option key ={3000} label="3K" value={3000}></option>
+        <option key ={6000} label="6K" value={6000}></option>
+        <option key ={9000} label="9K" value={9000}></option>
+        <option key ={12000} label="12K" value={12000}></option>
+        <option key ={15000} label="15K" value={15000}></option>
+      </datalist>
+      <label>{state.minPrice}</label>
+</div>
+</div>
 </div>
   )
 }

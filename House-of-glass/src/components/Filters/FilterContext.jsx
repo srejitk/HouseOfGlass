@@ -12,7 +12,7 @@ const useFilter = () => useContext(FilterContext);
 
 // const [data, setData]=useState([]);
 
-
+// TO BE ADDED LATER
 //     useEffect(()=>{
 //         (async()=>{
 //             const response = await axios.get("/api/products")

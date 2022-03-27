@@ -10,14 +10,14 @@ export const products = [
     _id: uuid(),
     title: "JJ E13492",
     name: "Silver Black Full Rim Supreme Steel JJ E13492-C2",
-    brand:"JOHN JACOBS",
+    brand:"JOHNJACOBS",
     price: "4000",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648149786/House%20Of%20Glass/Products/Silver-Black-Full-Rim-Round-John-Jacobs-Supreme-Steel-JJ-E13492-C2-Eyeglasses_john-jacobs-jj-e13492-c2-eyeglasses_G_8232_10_02_2022-removebg-preview_vyg30e.png",
     fastDelivery: true,
     discount: 0.625,
     rating: 4.2,
-    count: 45,
+    count: 0,
     categoryName: "round",
   },
   {
@@ -25,13 +25,13 @@ export const products = [
     title: "JJ E11473",
     name: "Black Full Rim Round Eyeglasses",
     price: "4000",
-    brand:"JOHN JACOBS",
+    brand:"JOHNJACOBS",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648150058/House%20Of%20Glass/Products/john-jacobs-jj-e11473-c1-eyeglasses_john-jacobs-jj-e11473-c1-eyeglasses_john-jacobs-jj-e11473-c1-eyeglasses_g_0143_1-removebg-preview_lifc2w.png",
     fastDelivery: true,
     discount: 0.625,
     rating: 3.9,
-    count: 24,
+    count: 0,
     categoryName: "round",
   },
   {
@@ -44,7 +44,7 @@ export const products = [
     fastDelivery: false,
     discount: "11",
     rating: 3.9,
-    count: 8,
+    count: 0,
     categoryName: "hoodie",
   },
   {
@@ -170,7 +170,7 @@ export const products = [
     _id: uuid(),
     title: "JJ E12629",
     name: "Pro Titanium Silver Rimless Round Eyeglasses",
-    brand:"JOHN JACOBS",
+    brand:"JOHNJACOBS",
     price: "5000",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648151070/House%20Of%20Glass/Products/john-jacobs-jj-e12629-c1-eyeglasses_g_3169-removebg-preview_slke7i.png",
@@ -210,7 +210,7 @@ export const products = [
     _id: uuid(),
     title: "JJ E11689",
     name: "Black Full Rim Round Eyeglasses",
-    brand:"JOHN JACOBS",
+    brand:"JOHNJACOBS",
     price: "4000",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648151350/House%20Of%20Glass/Products/john-jacobs-jj-e11689-full-rim-round-c1-eyeglasses_g_0566-removebg-preview_1_f33oot.png",

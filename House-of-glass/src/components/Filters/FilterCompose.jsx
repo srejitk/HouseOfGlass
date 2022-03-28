@@ -1,6 +1,6 @@
 
 
-const hightolow =({sortBy},array)=>{
+const sortby =({sortBy},array)=>{
     switch(sortBy){
         case "HIGHTOLOW":
             return sortBy==="HIGHTOLOW"?[...array].sort((a,b)=>Number(b.price)- Number(a.price)):[...array];
@@ -27,13 +27,6 @@ const outofstock = ({outOfStock},array)=>{
     return filteredList;
 }
 
-
-const applyFilters = (state,...args)=>(ProductList)=>{
-    return args.reduce((acc,curr)=>{
-        return curr(state,acc)
-    },ProductList)
-}
-
 const applyCategories = ({categoryState},array)=>{
     if ( categoryState.length===0){
         return array;
@@ -45,11 +38,15 @@ const applyCategories = ({categoryState},array)=>{
 const priceRange = ({minPrice}, array)=>{
     return array.filter((item)=>item.price<=minPrice)
 }
+const applyFilters = (state,...args)=>(ProductList)=>{
+    return args.reduce((acc,curr)=>{
+        return curr(state,acc)
+    },ProductList)
+}
 
 const getProductList =(state,ProductList)=> applyFilters(
     state,
-    hightolow,
-    lowtohigh,
+    sortby,
     fastdelivery,
     outofstock,
     applyCategories,

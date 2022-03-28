@@ -3,7 +3,8 @@ import React from 'react'
 import "./VerticalCard.css"
 
 
-export default function VerticalCard({CardTitle,ItemPrice,ItemDiscount,DeliveryType,ItemImage,ItemRating,ItemID}) {
+export default function VerticalCard({props}) {
+  const {CardTitle,ItemPrice,ItemDiscount,DeliveryType,ItemImage,ItemRating,ItemID} = props;
   return (
     <div className=" card card--vertical box-shadow" >
     <div className="card__cover cover--vertical image--responsive">

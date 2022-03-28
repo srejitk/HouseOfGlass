@@ -15,7 +15,6 @@
   
   .glass-logo {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     padding: 8px 16px;
   }
@@ -72,6 +71,26 @@
 
   .glass-search{
     width:90%;
+
+    padding: 1rem;
+  }
+
+
+
+  .glass-search-input {
+    background-color: var(--white);
+    outline: 2px solid var(--component-grey-05);
+    width: 50%;
+    margin-left: 0;
+    border-radius: 64px;
+    position: relative;
+
+  }
+  .glass-search-icon{
+    position: absolute;
+    right: -5px;;
+    border-radius: 50%;
+    overflow: hidden;
   }
   .glass__header--links{
     width: 100%;

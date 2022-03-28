@@ -12,7 +12,7 @@ export default function Header() {
           </Link>
         <div className="glass-search input__container">
               <input type="search" className="input__field glass-search-input br-24 position-relative" placeholder="What today?" name="searchbar" id="search-bar" />
-              <button className="btn material-icons glass-search-icon md-24 m-1l">search</button>
+              <button className="btn material-icons glass-search-icon m-1l">search</button>
             </div>
         <div className="glass__header--links">
           <ul className="glass__header--ul flex-mid-center">

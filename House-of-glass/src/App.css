@@ -56,9 +56,127 @@
 .container-column{
   flex-direction:column;}
 
+.products-container{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: 
+  "filter text "
+  "filter products"
+  "filter products";
+
+}
+
+.products-text-container{
+  grid-area: text;
+
+}
+
+/* Filter Pills */
+.pill{
+  border: solid black;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+.category-wrapper{
+  display: flex;
+  outline: 2px solid black;
+  border-radius:16px;
+  padding: 2rem 1rem 0rem;
+  height:fit-content;
+  width:100%;
+  flex-direction: column;
+  justify-content:flex-start;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.category-label-container{
+  position: absolute;
+  top:-20px;
+  background-color: white;
+  border-radius:30px;
+}
+
+.filter{
+  grid-area: filter;
+  min-width: 20vw;
+  padding: 1rem 2rem;
+  width:100%;
+}
+
+.filter-header-container{
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 1rem;
+}
+.products-list-container{
+  grid-area: products;
+  gap: 1rem;
+  min-width: 75vw;
+  padding:2rem;
+  align-items: flex-start;
+  
+
+}
+
+.products-text-container{
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:fit-content;
+  width: 77vw;
+
+}
+
+input:checked + .pill{
+  background-color:black;
+}
+
 @media  only screen and (max-width:768px){
   .App{
     grid-template-rows: 15rem auto 12.5rem;
     width: 90%;
   }
+
+  .products-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 4rem auto;
+    grid-template-areas: 
+    "filter"
+    "text"
+    "products";
+  }
+
+  .products-text-container{
+    margin: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100vw;
+  }
+
+  .filter{
+    grid-area: filter;
+    width: 100vw;
+    height:fit-content;
+  }
+  
+  .products-list-container{
+    grid-area: products;
+    gap: 1rem;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+  }
+  .category-wrapper{
+    width:100%;
+    flex-direction: column;
+    justify-content:center;
+  }
+
+
 }

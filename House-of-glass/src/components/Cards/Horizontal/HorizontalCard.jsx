@@ -1,7 +1,7 @@
 import React from 'react'
 import Ratings from '../../Ratings/Ratings'
 
-export default function HorizontalCard({props}) {
+export default function HorizontalCard(props) {
   const {CardTitle,ItemPrice,ItemDiscount,DeliveryType,ItemImage,ItemRating,ItemID} = props;
   return (
       <div className="card card--horizontal box-shadow">

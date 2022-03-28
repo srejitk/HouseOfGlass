@@ -3,21 +3,22 @@ import React from 'react'
 import "./VerticalCard.css"
 
 
-export default function VerticalCard({props}) {
-  const {CardTitle,ItemPrice,ItemDiscount,DeliveryType,ItemImage,ItemRating,ItemID} = props;
+export default function VerticalCard({Item}) {
+
+  const {name,price,discount,fastDelivery,imageUrl,rating} = Item;
   return (
     <div className=" card card--vertical box-shadow" >
     <div className="card__cover cover--vertical image--responsive">
-      <img src={ItemImage} />
+      <img src={imageUrl} />
       <span className="material-icons card__icon">favorite</span>
     </div>
     <div className="card__contents--vertical">
       <div className="card__content card__text--vertical">
-        <h6 className="header-6">{CardTitle}</h6>
+        <h6 className="header-6">{name}</h6>
         <div className="container--row">
-          <p className="subtitle-1 item--sale text--primary">{ItemPrice}</p><p className="body-2 item--price">Rs.
-            2443</p>
-          <p className="subtitle-1 item--info text--grey">{DeliveryType}</p>
+          <p className="subtitle-1 item--sale text--primary">{price}</p><p className="body-2 item--price">Rs.
+            {price*(1+discount)}</p>
+          <p className="subtitle-1 item--info text--grey">{fastDelivery}</p>
           <p />
         </div>
         <Ratings/>

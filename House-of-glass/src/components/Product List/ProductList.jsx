@@ -18,7 +18,7 @@ export default function ProductList() {
               <h4 className="header-4">Products</h4>
               <h6 className="subtitle-1">Products found : {finalProductList.length} </h6></div>
           <div className="products-list-container flex--row--wrap">{finalProductList.map((item)=>(
-              <VerticalCard key={item._id} CardTitle={item.name} ItemPrice= {item.price} ItemDiscount={item.discount} DeliveryType={item.fastDelivery?"Fast Delivery": "Regular"} ItemImage={item.imageUrl} ItemRating={item.rating}/>
+              <VerticalCard key={item._id} Item={item}/>
           ))}</div>
           
       </div>

@@ -81,7 +81,7 @@
 
 /* Filter Pills */
 .pill{
-  border: 2px solid black;
+  border: solid black;
   width: fit-content;
   padding: 0.2rem 0.5rem;
   border-radius: 40px;

@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useContext,createContext, useState, useNavigate } from "react";
+import { useContext,createContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext()
 
 const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({children})=>{
-    const navigate = useNavigate()
+    const navigate = useNavigate
     const [isLogged, setIsLogged]= useState(false)
     const token = localStorage.getItem("Token")
     const [userDetails,setUserDetails] = useState({cartList:[],wishList:[],firstName:""})
@@ -19,7 +19,7 @@ const AuthProvider = ({children})=>{
     },[token])
 
 
-    const logoutHandler = ()=>{
+    const logoutHandler = () => {
         localStorage.removeItem("Token");
         setIsLogged(false);
         navigate("/")
@@ -27,7 +27,7 @@ const AuthProvider = ({children})=>{
 
 
     return(
-        <AuthContext.Provider value={{isLogged,setIsLogged,userDetails,setUserDetails, logoutHandler}}>{children}</AuthContext.Provider>
+        <AuthContext.Provider value={{isLogged,setIsLogged,userDetails,setUserDetails,logoutHandler}}>{children}</AuthContext.Provider>
     )
 }
 

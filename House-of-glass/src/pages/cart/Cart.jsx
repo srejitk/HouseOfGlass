@@ -3,15 +3,17 @@ import React from 'react'
 import "./Cart.css"
 import { useAuth } from 'Utils/AuthContext'
 import WishListCard from 'components/Cards/WishListCard/WishListCard';
+import { useCart } from 'Contexts/Cart/CartContext';
 
 export default function Cart() {
-  const {userDetails}=useAuth();
-  const {cartList} = userDetails;
+  // const {userDetails}=useAuth();
+  // const {cartList} = userDetails;
+  const {cart} = useCart()
   return (
     <main className="content flex--row--nowrap position-relative">
   <div className="glass__container  flex--row--wrap gap20 ">
 
-  {cartList.map((Product) => (<WishListCard key={Product._id} Item={Product}/>))}
+  {cart.map((Product) => (<WishListCard key={Product._id} Item={Product}/>))}
    
     
   </div>

@@ -1,17 +1,26 @@
-// import axios from "axios";
-// import {useState, useEffect} from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-// export const useAxios = (endpoint)=>{
+export const useAxios = (endpoint) => {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-//     const [responseData, setResponseData]=useState({})
+  const getData = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(endpoint);
+      setProducts(data?.products);
+    } catch (error) {
+      setError(error);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-// (async()=>{
-//     try{
-//         const response = await axios.get(endpoint);
-//         const {data} = response;
-//         setResponseData(data)
-//     }
-
-    
-// })()
-// }
+  useEffect(() => {
+    getData();
+  }, []);
+  return { products, error, loading };
+};

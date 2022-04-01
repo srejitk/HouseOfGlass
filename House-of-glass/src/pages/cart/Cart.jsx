@@ -1,7 +1,7 @@
 import ProductList from "components/Product List/ProductList";
 import React from "react";
 import "./Cart.css";
-import WishListCard from "components/Cards/WishListCard/WishListCard";
+import WishListCard from "components/Cards/CartCard/CartCard";
 import { useCart } from "Contexts/Cart/CartContext";
 
 export default function Cart() {

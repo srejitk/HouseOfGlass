@@ -38,7 +38,6 @@ const CartProvider = ({ children }) => {
       incrementCart(product);
     } else {
       try {
-        console.log(header);
         const response = await axios.post(
           "/api/user/cart",
           { product },

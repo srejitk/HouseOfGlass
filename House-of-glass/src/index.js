@@ -5,7 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ProductProvider } from "Contexts/Product/ProductContext";
-import { AuthProvider } from "Utils/AuthContext";
+import { AuthProvider } from "Contexts/Auth/AuthContext";
 import { CartProvider } from "Contexts/Cart/CartContext";
 import { WishlistProvider } from "Contexts/Wishlist/WishlistContext";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Filters from "components/Filters/Filters";
-import { useProduct } from "components/Filters/ProductContext";
+import { useProduct } from "Contexts/Product/ProductContext";
 import ProductCard from "components/Cards/Vertical/ProductCard";
 
 export default function ProductList() {

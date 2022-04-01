@@ -1,5 +1,5 @@
 import React from "react";
-import { useProduct } from "./ProductContext";
+import { useProduct } from "Contexts/Product/ProductContext";
 
 export default function Filters() {
   const { dispatch, state } = useProduct();

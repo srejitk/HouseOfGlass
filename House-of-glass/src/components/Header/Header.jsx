@@ -24,6 +24,7 @@ export default function Header() {
           placeholder="What today?"
           name="searchbar"
           id="search-bar"
+          autoComplete="on"
         />
         <button className="btn material-icons glass-search-icon m-1l">
           search

@@ -14,17 +14,11 @@ const sortby = ({ sortBy }, array) => {
 };
 
 const fastdelivery = ({ fastDelivery }, array) => {
-  let filteredList = fastDelivery
-    ? array.filter((item) => item.fastDelivery)
-    : array;
-  return filteredList;
+  return fastDelivery ? array.filter((item) => item.fastDelivery) : array;
 };
 
 const outofstock = ({ outOfStock }, array) => {
-  let filteredList = outOfStock
-    ? array.filter((item) => item.count >= 1)
-    : array;
-  return filteredList;
+  return outOfStock ? array.filter((item) => item.count >= 1) : array;
 };
 
 const applyCategories = ({ categoryState }, array) => {

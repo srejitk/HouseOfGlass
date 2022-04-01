@@ -14,14 +14,14 @@ const WishlistProvider = ({ children }) => {
     initialWishlistState
   );
   const token = localStorage.getItem("Token");
-  const header = {
-    headers: {
-      authorization: token,
-    },
-  };
+
   const getWishlist = async () => {
     try {
-      const response = await axios.get("/api/user/wishlist", header);
+      const response = await axios.get("/api/user/wishlist", {
+        headers: {
+          authorization: token,
+        },
+      });
       if (response.status === 200) {
         wishlistDispatch({
           type: "GET_WISHLIST",
@@ -45,7 +45,11 @@ const WishlistProvider = ({ children }) => {
         const response = await axios.post(
           "/api/user/wishlist",
           { product },
-          header
+          {
+            headers: {
+              authorization: token,
+            },
+          }
         );
         if (response.status === 201) {
           wishlistDispatch({
@@ -69,10 +73,11 @@ const WishlistProvider = ({ children }) => {
 
   const removeFromWishlist = async (product) => {
     try {
-      const response = await axios.delete(
-        `/api/user/wishlist/${product._id}`,
-        header
-      );
+      const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
+        headers: {
+          authorization: token,
+        },
+      });
       if (response.status === 200) {
         wishlistDispatch({
           type: "DELETE_FROM_WISHLIST",

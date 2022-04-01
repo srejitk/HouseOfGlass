@@ -10,7 +10,7 @@ export const products = [
     _id: uuid(),
     title: "JJ E13492",
     name: "Silver Black Full Rim Supreme Steel JJ E13492-C2",
-    brand:"JOHNJACOBS",
+    brand: "JOHNJACOBS",
     price: "4000",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648149786/House%20Of%20Glass/Products/Silver-Black-Full-Rim-Round-John-Jacobs-Supreme-Steel-JJ-E13492-C2-Eyeglasses_john-jacobs-jj-e13492-c2-eyeglasses_G_8232_10_02_2022-removebg-preview_vyg30e.png",
@@ -18,21 +18,21 @@ export const products = [
     discount: 0.625,
     rating: 4.2,
     count: 0,
-    categoryName: "round",
+    categoryName: "ROUND",
   },
   {
     _id: uuid(),
     title: "JJ E11473",
     name: "Black Full Rim Round Eyeglasses",
     price: "4000",
-    brand:"JOHNJACOBS",
+    brand: "JOHNJACOBS",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648150058/House%20Of%20Glass/Products/john-jacobs-jj-e11473-c1-eyeglasses_john-jacobs-jj-e11473-c1-eyeglasses_john-jacobs-jj-e11473-c1-eyeglasses_g_0143_1-removebg-preview_lifc2w.png",
     fastDelivery: true,
     discount: 0.625,
     rating: 3.9,
     count: 0,
-    categoryName: "round",
+    categoryName: "ROUND",
   },
   {
     _id: uuid(),
@@ -77,7 +77,7 @@ export const products = [
     _id: uuid(),
     title: "FOS 7108",
     name: "Matte Grey Transparent Full Rim Round Eyeglasses",
-    brand:"VOGUE",
+    brand: "VOGUE",
     price: "7400",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648150578/House%20Of%20Glass/Products/fossil-fos-7108-63m-eyeglasses_G_6613-removebg-preview_phw0dr.png",
@@ -85,7 +85,7 @@ export const products = [
     discount: 0.6,
     rating: 4.9,
     count: 20,
-    categoryName: "round",
+    categoryName: "ROUND",
   },
   {
     _id: uuid(),
@@ -143,7 +143,7 @@ export const products = [
     _id: uuid(),
     title: "VC E12707",
     name: "Grey Silver Full Rim Round Eyeglasses",
-    brand:"VINCENT CHASE",
+    brand: "VINCENT CHASE",
     price: "999",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648150953/House%20Of%20Glass/Products/vincent-chase-vc-e12707-foll-rim-rnd-tr90ss-mtl-c5-eyegasus_g_9058-removebg-preview_ju7nnc.png",
@@ -170,7 +170,7 @@ export const products = [
     _id: uuid(),
     title: "JJ E12629",
     name: "Pro Titanium Silver Rimless Round Eyeglasses",
-    brand:"JOHNJACOBS",
+    brand: "JOHNJACOBS",
     price: "5000",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648151070/House%20Of%20Glass/Products/john-jacobs-jj-e12629-c1-eyeglasses_g_3169-removebg-preview_slke7i.png",
@@ -210,7 +210,7 @@ export const products = [
     _id: uuid(),
     title: "JJ E11689",
     name: "Black Full Rim Round Eyeglasses",
-    brand:"JOHNJACOBS",
+    brand: "JOHNJACOBS",
     price: "4000",
     imageUrl:
       "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648151350/House%20Of%20Glass/Products/john-jacobs-jj-e11689-full-rim-round-c1-eyeglasses_g_0566-removebg-preview_1_f33oot.png",

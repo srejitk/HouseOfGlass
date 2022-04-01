@@ -25,7 +25,9 @@ const applyCategories = ({ categoryState }, array) => {
   if (categoryState.length === 0) {
     return array;
   } else {
-    return array.filter((item) => categoryState.includes(item.brand));
+    return array.filter((item) =>
+      categoryState.includes(item.brand || item.categoryName)
+    );
   }
 };
 

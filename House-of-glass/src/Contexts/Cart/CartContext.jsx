@@ -8,7 +8,12 @@ const CartContext = createContext();
 const useCart = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
-  const initialCartState = { cart: [], cartCount: 0, cartSum: 0 };
+  const initialCartState = {
+    cart: [],
+    cartCount: 0,
+    cartSum: 0,
+    cartDiscount: 0,
+  };
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
 
   const token = localStorage.getItem("Token");
@@ -153,6 +158,7 @@ const CartProvider = ({ children }) => {
         cart: cartState.cart,
         cartCount: cartState.cartCount,
         cartSum: cartState.cartSum,
+        cartDiscount: cartState.cartDiscount,
         addToCart,
         deleteFromCart,
         incrementCart,

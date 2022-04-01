@@ -4,7 +4,7 @@ import CartCard from "components/Cards/CartCard/CartCard";
 import { useCart } from "Contexts/Cart/CartContext";
 
 export default function Cart() {
-  const { cart, cartCount, cartSum } = useCart();
+  const { cart, cartCount, cartSum, cartDiscount } = useCart();
   return (
     <main className="content flex--row--nowrap position-relative">
       <div className="glass__container  flex--row--wrap gap20 ">
@@ -21,11 +21,7 @@ export default function Cart() {
         </div>
         <div className="items--discount">
           <p className="subtitle-1">Discount</p>
-          <p className="body-1">-Rs. 299</p>
-        </div>
-        <div className="items--delivery">
-          <p className="subtitle-1">Delivery Charges</p>
-          <p className="body-1">Rs. 99</p>
+          <p className="body-1">{`Rs. ${cartDiscount}`}</p>
         </div>
         <div className="items--total">
           <p className="subtitle-1">Total</p>

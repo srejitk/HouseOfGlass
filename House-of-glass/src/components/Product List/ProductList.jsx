@@ -1,7 +1,7 @@
 import React from "react";
 import Filters from "components/Filters/Filters";
-import { useProduct } from "components/Filters/ProductContext";
-import ProductCard from "components/Cards/Vertical/ProductCard";
+import { useProduct } from "Contexts/Product/ProductContext";
+import ProductCard from "components/Cards/ProductCard/ProductCard";
 
 export default function ProductList() {
   const { products } = useProduct();

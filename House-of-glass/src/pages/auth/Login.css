@@ -99,35 +99,3 @@
     flex-direction: row-reverse;
     gap: 10px;
 }
-
-
-/* @media only screen and (min-width: 320px) and (max-width:570px) {
-    .content {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-
-    .glass__form--image {
-        order: -1;
-    }
-
-    .line__breaker {
-        width: 30rem;
-        height: 2px;
-        background-color: var(--component-grey-01);
-        top: 50%;
-        right: 50%;
-        transform: translate(50%, -50%);
-    }
-
-    .glass__search {
-        width: 300px;
-    }
-
-    .glass__hero--title {
-        display: none;
-    }
-
-
-} */

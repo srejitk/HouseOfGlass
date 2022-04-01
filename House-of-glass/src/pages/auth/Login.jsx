@@ -1,8 +1,7 @@
-import TextField from "components/Textfield/TextField";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useAuth } from "../../Utils/AuthContext";
+import { useAuth } from "../../Contexts/Auth/AuthContext";
 import axios from "axios";
 
 export default function Login() {

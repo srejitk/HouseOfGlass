@@ -25,7 +25,11 @@ const CartProvider = ({ children }) => {
 
   const getCart = async () => {
     try {
-      const response = await axios.get("/api/user/cart", header);
+      const response = await axios.get("/api/user/cart", {
+        headers: {
+          authorization: token,
+        },
+      });
       if (response.status === 200 || response.status === 201) {
         cartDispatch({ type: "GET_CART", payload: response?.data?.cart });
       }
@@ -46,7 +50,11 @@ const CartProvider = ({ children }) => {
         const response = await axios.post(
           "/api/user/cart",
           { product },
-          header
+          {
+            headers: {
+              authorization: token,
+            },
+          }
         );
 
         if (response.status === 201) {
@@ -68,10 +76,11 @@ const CartProvider = ({ children }) => {
 
   const deleteFromCart = async (product) => {
     try {
-      const response = await axios.delete(
-        `/api/user/cart/${product._id}`,
-        header
-      );
+      const response = await axios.delete(`/api/user/cart/${product._id}`, {
+        headers: {
+          authorization: token,
+        },
+      });
       if (response.status === 200) {
         cartDispatch({
           type: "DELETE_FROM_CART",
@@ -96,7 +105,11 @@ const CartProvider = ({ children }) => {
       const response = await axios.post(
         `/api/user/cart/${product._id}`,
         { action: { type: "increment" } },
-        header
+        {
+          headers: {
+            authorization: token,
+          },
+        }
       );
       if (response.status === 200) {
         cartDispatch({ type: "INCREMENT_CART", payload: response?.data?.cart });
@@ -122,7 +135,11 @@ const CartProvider = ({ children }) => {
         const response = await axios.post(
           `/api/user/cart/${product._id}`,
           { action: { type: "decrement" } },
-          header
+          {
+            headers: {
+              authorization: token,
+            },
+          }
         );
         if (response.status === 200) {
           cartDispatch({

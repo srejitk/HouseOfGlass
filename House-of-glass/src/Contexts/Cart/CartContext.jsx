@@ -21,7 +21,7 @@ const CartProvider = ({ children }) => {
   const getCart = async () => {
     try {
       const response = await axios.get("/api/user/cart", header);
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         cartDispatch({ type: "GET_CART", payload: response?.data?.cart });
       }
     } catch (error) {

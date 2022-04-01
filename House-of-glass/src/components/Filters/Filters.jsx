@@ -2,14 +2,14 @@ import React from "react";
 import { useProduct } from "Contexts/Product/ProductContext";
 
 export default function Filters() {
-  const { dispatch, state } = useProduct();
+  const { productDispatch, productState } = useProduct();
   return (
     <div className="filter ">
       <div className="filter-header-container">
         <h5 className="header-5">Filters</h5>
         <button
           className="btn btn--small"
-          onClick={() => dispatch({ type: "CLEAR" })}
+          onClick={() => productDispatch({ type: "CLEAR" })}
         >
           CLEAR
         </button>
@@ -26,9 +26,11 @@ export default function Filters() {
           <input
             type="radio"
             name="SORTBY"
-            checked={state.sortBy === "HIGHTOLOW"}
+            checked={productState.sortBy === "HIGHTOLOW"}
             id="high-to-low"
-            onChange={() => dispatch({ type: "SORTBY", payload: "HIGHTOLOW" })}
+            onChange={() =>
+              productDispatch({ type: "SORTBY", payload: "HIGHTOLOW" })
+            }
           />
         </div>
         <div className="pill  align-center gap20 flex-mid-center">
@@ -37,9 +39,11 @@ export default function Filters() {
           <input
             type="radio"
             name="SORTBY"
-            checked={state.sortBy === "LOWTOHIGH"}
+            checked={productState.sortBy === "LOWTOHIGH"}
             id="low-to-high"
-            onChange={() => dispatch({ type: "SORTBY", payload: "LOWTOHIGH" })}
+            onChange={() =>
+              productDispatch({ type: "SORTBY", payload: "LOWTOHIGH" })
+            }
           />
         </div>
       </div>
@@ -54,10 +58,13 @@ export default function Filters() {
           <input
             type="checkbox"
             name="FASTDELIVERY"
-            checked={state.fastDelivery === true ? true : false}
+            checked={productState.fastDelivery === true ? true : false}
             id="fast-delivery"
             onChange={(e) =>
-              dispatch({ type: "FASTDELIVERY", payload: e.target.checked })
+              productDispatch({
+                type: "FASTDELIVERY",
+                payload: e.target.checked,
+              })
             }
           />
         </div>
@@ -67,10 +74,10 @@ export default function Filters() {
           <input
             type="checkbox"
             name="OUTOFSTOCK"
-            checked={state.outOfStock === true ? true : false}
+            checked={productState.outOfStock === true ? true : false}
             id="out-of-stock"
             onChange={(e) =>
-              dispatch({ type: "OUTOFSTOCK", payload: e.target.checked })
+              productDispatch({ type: "OUTOFSTOCK", payload: e.target.checked })
             }
           />
         </div>
@@ -90,13 +97,15 @@ export default function Filters() {
             name="CATEGORY"
             value="JOHNJACOBS"
             checked={
-              state.categoryState.find((category) => category === "JOHNJACOBS")
+              productState.categoryState.find(
+                (category) => category === "JOHNJACOBS"
+              )
                 ? true
                 : false
             }
             id="category-1"
             onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
             }
           />
         </div>
@@ -108,13 +117,15 @@ export default function Filters() {
             name="CATEGORY"
             value="VOGUE"
             checked={
-              state.categoryState.find((category) => category === "VOGUE")
+              productState.categoryState.find(
+                (category) => category === "VOGUE"
+              )
                 ? true
                 : false
             }
             id="category-1"
             onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
             }
           />
         </div>
@@ -127,13 +138,15 @@ export default function Filters() {
             name="CATEGORY"
             value="RAYBAN"
             checked={
-              state.categoryState.find((category) => category === "RAYBAN")
+              productState.categoryState.find(
+                (category) => category === "RAYBAN"
+              )
                 ? true
                 : false
             }
             id="category-1"
             onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
             }
           />
         </div>
@@ -146,7 +159,7 @@ export default function Filters() {
             name="CATEGORY"
             value="VINCENTCHASE"
             checked={
-              state.categoryState.find(
+              productState.categoryState.find(
                 (category) => category === "VINCENTCHASE"
               )
                 ? true
@@ -154,7 +167,7 @@ export default function Filters() {
             }
             id="category-1"
             onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
             }
           />
         </div>
@@ -170,13 +183,13 @@ export default function Filters() {
           <input
             id="price-range"
             type="range"
-            value={state.minPrice}
+            value={productState.minPrice}
             max={12000}
             min={1000}
             step={1000}
             list="steps"
             onChange={(e) =>
-              dispatch({ type: "PRICERANGE", payload: e.target.value })
+              productDispatch({ type: "PRICERANGE", payload: e.target.value })
             }
           ></input>
 
@@ -188,7 +201,7 @@ export default function Filters() {
             <option key={12000} label="12K" value={12000}></option>
             <option key={15000} label="15K" value={15000}></option>
           </datalist>
-          <label>{state.minPrice}</label>
+          <label>{productState.minPrice}</label>
         </div>
       </div>
     </div>

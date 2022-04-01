@@ -9,7 +9,7 @@ const useProduct = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
   const { products, error, loading } = useAxios("/api/products");
-  const [state, dispatch] = useReducer(ProductReducer, {
+  const [productState, productDispatch] = useReducer(ProductReducer, {
     sortBy: "",
     fastDelivery: false,
     outOfStock: false,
@@ -17,11 +17,17 @@ const ProductProvider = ({ children }) => {
     minPrice: 12000,
   });
 
-  const finalProductList = getProductList(state, products);
+  const finalProductList = getProductList(productState, products);
 
   return (
     <ProductContext.Provider
-      value={{ state, dispatch, products: finalProductList, error, loading }}
+      value={{
+        productState,
+        productDispatch,
+        products: finalProductList,
+        error,
+        loading,
+      }}
     >
       {children}
     </ProductContext.Provider>

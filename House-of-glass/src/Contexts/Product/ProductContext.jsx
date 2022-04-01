@@ -1,14 +1,6 @@
-import {
-  createContext,
-  useContext,
-  useReducer,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useReducer } from "react";
 import { getProductList } from "./ProductCompose";
 import { ProductReducer } from "./ProductReducer";
-import axios from "axios";
-// import { products } from "backend/db/products";
 import { useAxios } from "Utils/useAxios";
 
 const ProductContext = createContext();

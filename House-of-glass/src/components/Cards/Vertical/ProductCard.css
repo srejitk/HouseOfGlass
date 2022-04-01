@@ -35,3 +35,8 @@
         border-radius: 12px;
     }
 
+    .liked{
+            color: var(--component-red-05);
+            background-color: var(--component-red-01);
+
+    }

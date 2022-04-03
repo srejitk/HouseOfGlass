@@ -4,6 +4,7 @@
     width: 100vw;
     display: flex;
     align-items: center;
+    height: fit-content!important;
     flex-direction: column;
     background-color: var(--white);
     border: 2px solid var(--component-grey-01);

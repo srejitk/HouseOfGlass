@@ -1,0 +1,45 @@
+
+    /* CART Card CSS */
+    .card {
+        border-color:#f5f5f5;
+        box-shadow: 0px 2px 4px rgb(97 97 97 / 18%), 0px 4px 8px rgb(97 97 97 / 18%);
+    }
+
+    .card__content--column {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 12px;
+    }
+
+    .card__content--row {
+        display: flex;
+        padding: 10px 12px;
+    }
+
+    .card__cover img {
+        position: relative;
+        height: 8rem;
+        width: 8rem;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+    .card--vertical {
+        max-width: 21.5rem;
+        min-height: 24.75rem;
+
+    }
+
+    .cover--vertical{
+        height: fit-content!important;
+    }
+    .cover--vertical img {
+        width: 21.5rem;
+        height: 12.5rem;
+        border-radius: 12px;
+    }
+
+    .liked{
+            color: var(--component-red-05);
+            background-color: var(--component-red-01);
+
+    }

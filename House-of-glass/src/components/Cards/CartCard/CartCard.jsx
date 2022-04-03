@@ -1,67 +1,60 @@
 import React from "react";
 import Ratings from "../../Ratings/Ratings";
 import { useCart } from "Contexts/Cart/CartContext";
+import "./CartCard.css";
 
 export default function CartCard({ Item }) {
   const { name, price, discount, fastDelivery, imageUrl, rating } = Item;
-  const { deleteFromCart, incrementCart, decrementCart } = useCart();
+  const { cart, cartCount, deleteFromCart, incrementCart, decrementCart } =
+    useCart();
 
   return (
-    <div className="card card--horizontal box-shadow">
-      <div className="card__contents">
-        <div className="card__content--column card__text">
-          <h5 className="header-5">{name}</h5>
+    <div className=" card card--vertical box-shadow">
+      <div className="card__cover cover--vertical image--responsive">
+        <img src={imageUrl} />
+      </div>
+      <div className="card__contents--vertical">
+        <div className="card__content card__text--vertical">
+          <h6 className="header-6">{name}</h6>
           <div className="container--row">
             <p className="subtitle-1 item--sale text--primary">{price}</p>
-            <p className="body-2 item--items">{discount}</p>
-            <p className="subtitle-1 item--info text--grey">
-              {fastDelivery ? "Fast Delivery" : "Regular Delivery"}
+            <p className="body-2 item--price">
+              Rs.
+              {price * (1 + discount)}
             </p>
+            <p className="subtitle-1 item--info text--grey">{fastDelivery}</p>
             <p />
           </div>
-        </div>
-        <div className="card__content--row card__footer">
-          <div className="container--row">
-            {Item.count >= 1 ? (
-              <>
-                <button
-                  className="btn btn--small flex-mid-center btn--primary--outline"
-                  onClick={() => decrementCart(Item)}
-                >
-                  <p className="subtitle-1 btn--text text">-</p>
-                </button>
-                <button className="btn btn--small flex-mid-center btn--primary">
-                  <p className="subtitle-1 btn--text text">
-                    {Item.count >= 0 && Item.count}
-                  </p>
-                </button>
-                <button
-                  className="btn btn--small flex-mid-center btn--primary--outline"
-                  onClick={() => incrementCart(Item)}
-                >
-                  <p className="subtitle-1 btn--text text">+</p>
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={() => deleteFromCart(Item)}
-                className="btn btn--small btn--outline--like"
-              >
-                <span className="material-icons icon--">trash</span>
-                <p className="subtitle-1 btn--txt">Remove</p>
-              </button>
-            )}
-
-            <button className="btn btn--small btn--outline--like">
-              <span className="material-icons icon--">bookmark</span>
-              <p className="subtitle-1 btn--txt">Save</p>
+          <Ratings />
+          <div className="container--row m-1t">
+            <button
+              className="btn btn--small flex-mid-center btn--primary--outline"
+              onClick={() => decrementCart(Item)}
+            >
+              <p className="subtitle-1 btn--text text">-</p>
+            </button>
+            <button className="btn btn--small flex-mid-center btn--primary">
+              <p className="subtitle-1 btn--text text">
+                {cart.some((product) =>
+                  product._id == Item._id ? product.count : 0
+                )}
+              </p>
+            </button>
+            <button
+              className="btn btn--small flex-mid-center btn--primary--outline"
+              onClick={() => incrementCart(Item)}
+            >
+              +
+            </button>
+            <button
+              onClick={() => deleteFromCart(Item)}
+              className="btn btn--small btn--warning"
+            >
+              <span className="material-icons text--warning">clear</span>
+              <p className="subtitle-1 btn--text text--warning">Remove</p>
             </button>
           </div>
         </div>
-      </div>
-      <div className="card__cover card__img--large gap20 image--responsive">
-        <img src={imageUrl} />
-        <Ratings />
       </div>
     </div>
   );

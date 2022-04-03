@@ -1,0 +1,47 @@
+
+.category_card{
+    background-color: white;
+    color: var(--component-blue-05);
+    width: 20rem;
+    height: 10rem;
+    border-radius: 20px;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+    margin: 1rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 1500ms;
+}
+
+.category_card:hover{
+    background-color: var(--PRIMARY);
+    color: white;
+    width: 25rem;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 1000ms;
+}
+
+.category_card:hover .card_img{
+    top: -100px;
+    transform: scale(1.1);
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 1000ms;
+}
+
+.card_img{
+    width: 200px;
+    top: -10px;
+    left: 20px;
+    height: 200px;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 900ms;
+}
+
+.card_img  img{
+    width: 100%;
+}
+
+@media only screen and (max-width:768px){
+    .category_card{
+        margin-bottom: 3rem;
+    }
+
+
+}

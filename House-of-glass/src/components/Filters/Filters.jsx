@@ -2,14 +2,14 @@ import React from "react";
 import { useProduct } from "Contexts/Product/ProductContext";
 
 export default function Filters() {
-  const { dispatch, state } = useProduct();
+  const { productDispatch, productState } = useProduct();
   return (
     <div className="filter ">
       <div className="filter-header-container">
         <h5 className="header-5">Filters</h5>
         <button
           className="btn btn--small"
-          onClick={() => dispatch({ type: "CLEAR" })}
+          onClick={() => productDispatch({ type: "CLEAR" })}
         >
           CLEAR
         </button>
@@ -20,26 +20,38 @@ export default function Filters() {
           <span className="material-icons">sort</span>
           <h6 className="subtitle-1">Sort</h6>
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.sortBy === "HIGHTOLOW" ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">swap_vertical_circle</span>
           <label htmlFor="high-to-low ">High to Low</label>
           <input
             type="radio"
             name="SORTBY"
-            checked={state.sortBy === "HIGHTOLOW"}
+            checked={productState.sortBy === "HIGHTOLOW"}
             id="high-to-low"
-            onChange={() => dispatch({ type: "SORTBY", payload: "HIGHTOLOW" })}
+            onChange={() =>
+              productDispatch({ type: "SORTBY", payload: "HIGHTOLOW" })
+            }
           />
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.sortBy === "LOWTOHIGH" ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">swap_vertical_circle</span>
           <label htmlFor="low-to-high">Low To High</label>
           <input
             type="radio"
             name="SORTBY"
-            checked={state.sortBy === "LOWTOHIGH"}
+            checked={productState.sortBy === "LOWTOHIGH"}
             id="low-to-high"
-            onChange={() => dispatch({ type: "SORTBY", payload: "LOWTOHIGH" })}
+            onChange={() =>
+              productDispatch({ type: "SORTBY", payload: "LOWTOHIGH" })
+            }
           />
         </div>
       </div>
@@ -48,29 +60,40 @@ export default function Filters() {
           <span className="material-icons">filter</span>
           <h6 className="subtitle-1">Filter</h6>
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.fastDelivery ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">bolt</span>
           <label htmlFor="fast-delivery">Fast Delivery</label>
           <input
             type="checkbox"
             name="FASTDELIVERY"
-            checked={state.fastDelivery === true ? true : false}
+            checked={productState.fastDelivery === true ? true : false}
             id="fast-delivery"
             onChange={(e) =>
-              dispatch({ type: "FASTDELIVERY", payload: e.target.checked })
+              productDispatch({
+                type: "FASTDELIVERY",
+                payload: e.target.checked,
+              })
             }
           />
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.outOfStock ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="out-of-stock">In Stock</label>
           <input
             type="checkbox"
             name="OUTOFSTOCK"
-            checked={state.outOfStock === true ? true : false}
+            checked={productState.outOfStock === true ? true : false}
             id="out-of-stock"
             onChange={(e) =>
-              dispatch({ type: "OUTOFSTOCK", payload: e.target.checked })
+              productDispatch({ type: "OUTOFSTOCK", payload: e.target.checked })
             }
           />
         </div>
@@ -84,77 +107,104 @@ export default function Filters() {
 
         <div className="pill  align-center gap20 flex-mid-center">
           <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">John Jacobs</label>
+          <label htmlFor="category-1">Round</label>
           <input
             type="checkbox"
             name="CATEGORY"
-            value="JOHNJACOBS"
+            value="ROUND"
             checked={
-              state.categoryState.find((category) => category === "JOHNJACOBS")
-                ? true
-                : false
-            }
-            id="category-1"
-            onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
-            }
-          />
-        </div>
-        <div className="pill  align-center gap20 flex-mid-center">
-          <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">Vogue</label>
-          <input
-            type="checkbox"
-            name="CATEGORY"
-            value="VOGUE"
-            checked={
-              state.categoryState.find((category) => category === "VOGUE")
-                ? true
-                : false
-            }
-            id="category-1"
-            onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
-            }
-          />
-        </div>
-
-        <div className="pill  align-center gap20 flex-mid-center">
-          <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">Ray Ban</label>
-          <input
-            type="checkbox"
-            name="CATEGORY"
-            value="RAYBAN"
-            checked={
-              state.categoryState.find((category) => category === "RAYBAN")
-                ? true
-                : false
-            }
-            id="category-1"
-            onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
-            }
-          />
-        </div>
-
-        <div className="pill  align-center gap20 flex-mid-center">
-          <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">Vincent Chase</label>
-          <input
-            type="checkbox"
-            name="CATEGORY"
-            value="VINCENTCHASE"
-            checked={
-              state.categoryState.find(
-                (category) => category === "VINCENTCHASE"
+              productState.categoryState.find(
+                (category) => category === "ROUND"
               )
                 ? true
                 : false
             }
             id="category-1"
             onChange={(e) =>
-              dispatch({ type: "CATEGORY", payload: e.target.value })
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+        <div className="pill  align-center gap20 flex-mid-center">
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Retro</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="RETRO"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "RETRO"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+
+        <div className="pill  align-center gap20 flex-mid-center">
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Transparent</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="TRANSPARENT"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "TRANSPARENT"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+
+        <div className="pill  align-center gap20 flex-mid-center">
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Cat Eye</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="CATEYE"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "CATEYE"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+
+        <div className="pill  align-center gap20 flex-mid-center">
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Rim Less</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="RIMLESS"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "RIMLESS"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
             }
           />
         </div>
@@ -170,13 +220,13 @@ export default function Filters() {
           <input
             id="price-range"
             type="range"
-            value={state.minPrice}
+            value={productState.minPrice}
             max={12000}
             min={1000}
             step={1000}
             list="steps"
             onChange={(e) =>
-              dispatch({ type: "PRICERANGE", payload: e.target.value })
+              productDispatch({ type: "PRICERANGE", payload: e.target.value })
             }
           ></input>
 
@@ -188,7 +238,7 @@ export default function Filters() {
             <option key={12000} label="12K" value={12000}></option>
             <option key={15000} label="15K" value={15000}></option>
           </datalist>
-          <label>{state.minPrice}</label>
+          <label>{productState.minPrice}</label>
         </div>
       </div>
     </div>

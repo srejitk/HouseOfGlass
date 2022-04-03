@@ -20,7 +20,11 @@ export default function Filters() {
           <span className="material-icons">sort</span>
           <h6 className="subtitle-1">Sort</h6>
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.sortBy === "HIGHTOLOW" ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">swap_vertical_circle</span>
           <label htmlFor="high-to-low ">High to Low</label>
           <input
@@ -33,7 +37,11 @@ export default function Filters() {
             }
           />
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.sortBy === "LOWTOHIGH" ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">swap_vertical_circle</span>
           <label htmlFor="low-to-high">Low To High</label>
           <input
@@ -52,7 +60,11 @@ export default function Filters() {
           <span className="material-icons">filter</span>
           <h6 className="subtitle-1">Filter</h6>
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.fastDelivery ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">bolt</span>
           <label htmlFor="fast-delivery">Fast Delivery</label>
           <input
@@ -68,7 +80,11 @@ export default function Filters() {
             }
           />
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center  ${
+            productState.outOfStock ? "filter-selected" : ""
+          }`}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="out-of-stock">In Stock</label>
           <input
@@ -91,14 +107,14 @@ export default function Filters() {
 
         <div className="pill  align-center gap20 flex-mid-center">
           <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">John Jacobs</label>
+          <label htmlFor="category-1">Round</label>
           <input
             type="checkbox"
             name="CATEGORY"
-            value="JOHNJACOBS"
+            value="ROUND"
             checked={
               productState.categoryState.find(
-                (category) => category === "JOHNJACOBS"
+                (category) => category === "ROUND"
               )
                 ? true
                 : false
@@ -111,35 +127,14 @@ export default function Filters() {
         </div>
         <div className="pill  align-center gap20 flex-mid-center">
           <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">Vogue</label>
+          <label htmlFor="category-1">Retro</label>
           <input
             type="checkbox"
             name="CATEGORY"
-            value="VOGUE"
+            value="RETRO"
             checked={
               productState.categoryState.find(
-                (category) => category === "VOGUE"
-              )
-                ? true
-                : false
-            }
-            id="category-1"
-            onChange={(e) =>
-              productDispatch({ type: "CATEGORY", payload: e.target.value })
-            }
-          />
-        </div>
-
-        <div className="pill  align-center gap20 flex-mid-center">
-          <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">Ray Ban</label>
-          <input
-            type="checkbox"
-            name="CATEGORY"
-            value="RAYBAN"
-            checked={
-              productState.categoryState.find(
-                (category) => category === "RAYBAN"
+                (category) => category === "RETRO"
               )
                 ? true
                 : false
@@ -153,14 +148,56 @@ export default function Filters() {
 
         <div className="pill  align-center gap20 flex-mid-center">
           <span className="material-icons">production_quantity_limits</span>
-          <label htmlFor="category-1">Vincent Chase</label>
+          <label htmlFor="category-1">Transparent</label>
           <input
             type="checkbox"
             name="CATEGORY"
-            value="VINCENTCHASE"
+            value="TRANSPARENT"
             checked={
               productState.categoryState.find(
-                (category) => category === "VINCENTCHASE"
+                (category) => category === "TRANSPARENT"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+
+        <div className="pill  align-center gap20 flex-mid-center">
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Cat Eye</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="CATEYE"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "CATEYE"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+
+        <div className="pill  align-center gap20 flex-mid-center">
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Rim Less</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="RIMLESS"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "RIMLESS"
               )
                 ? true
                 : false

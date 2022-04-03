@@ -1,5 +1,5 @@
 import { useProduct } from "Contexts/Product/ProductContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import "./Categories.css";
 
@@ -43,14 +43,10 @@ export default function Categories() {
   return (
     <section className="glass-categories">
       <div className="glass-categories-title">
-        <h4 className="header-4 m-1b">Categories</h4>
-        <p className="subtitle-1 m-1b">
+        <h4 className="header-3 m-1b">Categories</h4>
+        <p className="body-1 m-1b">
           Browse through the various categories available to us.
         </p>
-        <button className="btn btn--link btn--rtl">
-          <span className="material-icons">arrow_forward</span>
-          <Link to="/products">Browse</Link>
-        </button>
       </div>
       <div className="glass-categories-container box-shadow br-12 flex-mid-center">
         {categoryList.map((category) => {

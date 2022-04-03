@@ -13,14 +13,46 @@
   
       /* font */
       font-family: 'Poppins', sans-serif;
+
+      --PRIMARY_LIGHT :var(--component-yellow-02);
+      --PRIMARY:var(--component-orange-04);
+      --PRIMARY_DARK:var(--component-yellow-04);
+      --TEXT:var(--component-grey-04);
+      --TEXT_LIGHT:var(--component-grey-04)
+
 }
 
+.all-yellow{
+  --PRIMARY_LIGHT :var(--component-yellow-02);
+  --PRIMARY:var(--component-orange-04);
+  --PRIMARY_DARK:var(--component-yellow-04);
+  --TEXT:var(--black);
+  --TEXT_LIGHT:var(--component-grey-04)
+}
+
+.all-blue{
+  --PRIMARY_LIGHT :var(--component-blue-01);
+  --PRIMARY:var(--component-blue-04);
+  --PRIMARY_DARK:var(--component-blue-04);
+  --TEXT:var(--white);
+  --TEXT_LIGHT:var(--component-grey-04)
+}
+
+.all-red{
+  --PRIMARY_LIGHT :var(--component-red-01);
+  --PRIMARY:var(--component-red-04);
+  --PRIMARY_DARK:var(--component-red-04);
+  --TEXT:var(--component-grey-04);
+  --TEXT_LIGHT:var(--font-gray-light);
+}
 
 .hover-ripple:hover{
   background-color: var(--background-light);
   padding: 1rem 0.75rem;
   
 }
+
+
 
 .App{
   display: grid;
@@ -29,7 +61,7 @@
   width: 100vw;
   gap: 20px 10px;
   grid-template-columns: 1fr;
-  grid-template-rows: 4rem auto 12.5rem;
+  grid-template-rows: 5rem auto 12.5rem;
   grid-template-areas:
       "navbar"
       "content"
@@ -78,6 +110,7 @@
   padding: 0.2rem 0.5rem;
   border-radius: 40px;
   margin-bottom: 20px;
+  justify-content: space-between!important;
 }
 
 .category-wrapper{
@@ -95,14 +128,14 @@
 
 .category-label-container{
   position: absolute;
-  top:-20px;
+  top:-30px;
   background-color: white;
   border-radius:30px;
 }
-
+/* Filter CSS */
 .filter{
   grid-area: filter;
-  min-width: 20vw;
+  min-width: max-content;
   padding: 1rem 2rem;
   width:100%;
 }
@@ -121,7 +154,11 @@
   
 
 }
-
+.filter-selected{
+  background-color: var(--component-blue-05);
+  color: var(--white);
+  border-color: var(--component-blue-05);
+}
 .products-text-container{
   padding: 1rem 2rem;
   display: flex;
@@ -129,17 +166,33 @@
   align-items: center;
   height:fit-content;
   width: 77vw;
-
 }
+
+
 
 input:checked + .pill{
   background-color:black;
 }
 
+.emptyState_Container{
+  margin: auto;
+  width: 100%;
+  height: calc(100vh - 5rem);
+
+}
+
+@media  only screen and (max-width:1400px){
+
+  .App{
+    grid-template-rows: 10rem auto 12.5rem;
+    width: 100%;
+  }
+}
+
 @media  only screen and (max-width:768px){
   .App{
     grid-template-rows: 15rem auto 12.5rem;
-    width: 90%;
+    width: 100%;
   }
 
   .products-container{
@@ -171,6 +224,7 @@ input:checked + .pill{
     width: 100vw;
     align-items: center;
     justify-content: center;
+    margin: auto;
   }
   .category-wrapper{
     width:100%;
@@ -180,3 +234,6 @@ input:checked + .pill{
 
 
 }
+
+
+

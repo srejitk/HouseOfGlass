@@ -11,8 +11,6 @@
     padding: 2rem;
 }
 
-
-
 .glass__input {
     background-color: var(--component-grey-01);
     color: var(--black);
@@ -22,7 +20,6 @@
 .glass__input::placeholder {
     color: var(--component-grey-05);
 }
-
 
 
 .glass__btn {
@@ -59,7 +56,6 @@
     min-width: fit-content;
     gap: 1rem;
     padding: 1rem;
-    height: calc(width);
 }
 
 .text__terms {
@@ -81,8 +77,6 @@
     width: 32rem;
     border-radius: 50%;
 }
-
-
 
 .glass__input__options {
     display: flex;

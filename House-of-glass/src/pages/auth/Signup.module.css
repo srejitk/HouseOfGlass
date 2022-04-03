@@ -58,7 +58,6 @@
     min-width: fit-content;
     gap: 1rem;
     padding: 1rem;
-    height: calc(width);
 }
 
 .text__terms {

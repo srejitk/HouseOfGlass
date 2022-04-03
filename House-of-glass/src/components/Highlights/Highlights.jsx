@@ -1,47 +1,18 @@
+import CategoryCard from "components/Cards/CategoryCard/CategoryCard";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Highlights.css";
+import styles from "./Highlights.module.css";
 
 export default function Highlights() {
-  const highlightImages = [
-    {
-      img: "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648066517/House%20Of%20Glass/6_rwso2c.jpg",
-    },
-    {
-      img: "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648066517/House%20Of%20Glass/7_hvctpt.jpg",
-    },
-    {
-      img: "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648066517/House%20Of%20Glass/8_sjopta.jpg",
-    },
-    {
-      img: "https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648066517/House%20Of%20Glass/9_owecdk.jpg",
-    },
-  ];
   return (
-    <section className="glass-highlights">
-      <div className="glass-highlights-title">
-        <h4 className="header-4 m-1b">Brands</h4>
-        <p className="subtitle-1 m-1b">
-          Browse through the various brands available to us.
-        </p>
-        <button className="btn btn--link btn--rtl">
-          <span className="material-icons">arrow_forward</span>
-          <Link to="/products/all">Browse more</Link>
-        </button>
+    <section className={`${styles.glass_highlights} flex-column-wrap gap20`}>
+      <div className={`${styles.card_container} flex-row-wrap`}>
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
       </div>
-      <div className="glass-highlights-container box-shadow br-12 flex-mid-center">
-        {highlightImages.map((brands) => {
-          return (
-            // <Link to={`/products/${categoryName}`}>
-            <div className="card card--vertical m-1r card--text--overlay box-shadow-2">
-              <div className="card__cover cover--vertical image--responsive">
-                <img src={brands.img} />
-              </div>
-            </div>
-            // </Link>
-          );
-        })}
-      </div>
+      <h3 className={`${styles.category_title} header-3`}>Find your style</h3>
+      <p className={`${styles.category_desc} body-1`}>To the shape of you</p>
     </section>
   );
 }

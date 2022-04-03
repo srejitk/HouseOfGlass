@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import "./Signup.css";
+import styles from "./Signup.module.css";
 import axios from "axios";
 
 export default function Signup() {
@@ -26,7 +26,7 @@ export default function Signup() {
   const handleSignup = async (userData) => {
     try {
       const response = await axios.post("/api/auth/signup", userData);
-      if (response.status === 201) {
+      if (response.status === 200) {
         setUserData(defaultData);
         navigate("/sign-in");
       }
@@ -40,18 +40,23 @@ export default function Signup() {
     handleSignup(userData);
   };
   return (
-    <main className="content">
-      <div className=" glass__form--wrapper flex-mid-center br-8 flex-column-wrap">
+    <main className={`${styles.auth_content} flex-row-wrap flex-mid-center`}>
+      <div
+        className={`${styles.glass__form} flex-mid-center flex-column-wrap flex-gap20`}
+      >
         <h4 className="header-5">Sign Up</h4>
         <p className="body-1">Join us and get access to exclusive items</p>
-        <form onSubmit={submitHandler}>
+        <form
+          className={`${styles.glass__form__wrapper}  flex-mid-center br-8 flex-column-wrap`}
+          onSubmit={submitHandler}
+        >
           <div className="input__container">
             <input
               type="name"
               placeholder="Full Name"
               name="firstName"
               onChange={handleInput}
-              className="input__field glass__input glass__input--fname"
+              className={`input__field ${styles.glass__input}`}
               required
             />
           </div>
@@ -61,7 +66,7 @@ export default function Signup() {
               placeholder="Email"
               name="email"
               onChange={handleInput}
-              className="input__field glass__input glass__input--email"
+              className={`input__field ${styles.glass__input}`}
               required
             />
           </div>
@@ -71,7 +76,7 @@ export default function Signup() {
               placeholder="Password"
               name="password"
               onChange={handleInput}
-              className="input__field glass__input glass__input--pwd"
+              className={`input__field ${styles.glass__input}`}
               required
             />
           </div>
@@ -81,10 +86,11 @@ export default function Signup() {
               placeholder="Confirm your password"
               onChange={handleInput}
               name="confirmPassword"
-              className="input__field glass__input glass__input--pwd"
+              className={`input__field ${styles.glass__input}`}
               required
             />
           </div>
+          {error && <div className={styles.error_msg}>{error}</div>}
           <p className="text--terms caption text--center">
             By signing up you agree to accept all terms and conditions and agree
             to abide by the platform rules
@@ -104,9 +110,14 @@ export default function Signup() {
           </Link>
         </form>
       </div>
-      <div className="line__breaker" />
-      <div className="box-shadow glass__form--image flex-mid-center box-shadow image--responsive">
-        <img src="https://picsum.photos/id/684/600/400" alt="banner-sign-up" />
+
+      <div
+        className={`${styles.glass__form__image} flex-mid-center position-relative`}
+      >
+        <img
+          src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1648996657/House%20Of%20Glass/image-removebg-preview_3_cdpjqp.png"
+          alt="banner-sign-up"
+        />
       </div>
     </main>
   );

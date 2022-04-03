@@ -1,11 +1,12 @@
-.glass-highlights {
+.glass_highlights {
     width: 100vw;
-    height:20rem;
+    height:fit-content;
     background-color: var(--foreground-color);
     color: var(--primary-text);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
+    padding: 4rem 0;
     border: 2px solid var(--component-grey-01);
 
 }
@@ -30,4 +31,24 @@
     width: 60%;
     max-width: 80%;
     padding: 0rem 2rem;
+}
+
+.card_container{
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 2rem;
+
+}
+
+@media only screen and (max-width:768px){
+    .category_title{
+        order: 1;
+    }
+    .category_desc{
+        order: 2;
+    }
+    .card_container{
+        order: 3;
+    }
+
 }

@@ -3,7 +3,6 @@ import React from "react";
 import "./ProductCard.css";
 import { useCart } from "Contexts/Cart/CartContext";
 import { useWishlist } from "Contexts/Wishlist/WishlistContext";
-import { cartReducer } from "Contexts/Cart/CartReducer";
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ Item }) {

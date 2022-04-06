@@ -1,12 +1,17 @@
-import {Link} from "react-router-dom"
-import React from 'react'
+import React from "react";
+import EmptyState from "components/EmptyState/EmptyState";
 
 export default function NotFound() {
   return (
-    <div>
-        <h1>ERROR 404</h1>
-        <h3>Page Not Found</h3>
-        <h3>Head back to <Link to="/">Home</Link></h3>
+    <div className="flex-mid-center error container">
+      <EmptyState
+        stateTitle={"404"}
+        stateDesc="How did you end up here"
+        btnText="Go back"
+        icon={"warning"}
+        endpoint="/"
+        color={"all-red"}
+      />
     </div>
-  )
+  );
 }

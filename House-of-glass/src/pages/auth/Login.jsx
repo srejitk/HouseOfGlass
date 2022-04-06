@@ -11,7 +11,7 @@ export default function Login() {
   };
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState(defaultData);
-  //ADD A ERROR MESSAGE TO THE UI
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const { isLogged, setIsLogged, userDetails, setUserDetails } = useAuth();
   const guest = { email: "adarshbalika@gmail.com", password: "adarshbalika" };
@@ -33,7 +33,10 @@ export default function Login() {
       setError("No user exists!");
     }
   };
-
+  const pwdVisibiltyHandler = () => {
+    e.preventDefault();
+    setShowPassword(!showPassword);
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     handleLogin(loginData);
@@ -64,16 +67,33 @@ export default function Login() {
             className={`input__field ${styles.glass__input} `}
             onChange={handleInput}
           />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            id="pwd"
-            value={loginData.password}
-            className={`input__field ${styles.glass__input} `}
-            onChange={handleInput}
-          />
+          <div className="input__container position-relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              id="pwd1"
+              value={loginData.password}
+              className={`input__field ${styles.glass__input} `}
+              onChange={handleInput}
+              required
+            />
+            {showPassword ? (
+              <button
+                onClick={pwdVisibiltyHandler}
+                className={`btn_action position-absolute ${styles.passwordIcon} btn--small flex-mid-center transparent-btn`}
+              >
+                <span className="material-icons">visibility_off</span>
+              </button>
+            ) : (
+              <button
+                onClick={pwdVisibiltyHandler}
+                className={`btn_action position-absolute ${styles.passwordIcon} btn--small flex-mid-center transparent-btn`}
+              >
+                <span className="material-icons">visibility</span>
+              </button>
+            )}
+          </div>
           <div className={styles.glass__input__options}>
             <div className={`input__container ${styles.glass__form__input}`}>
               <label htmlFor="remember-me" className="input--sidelabel">

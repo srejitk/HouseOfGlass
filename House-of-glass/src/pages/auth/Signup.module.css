@@ -26,18 +26,18 @@
 
 .glass__btn {
     width: 21.5rem;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 350ms;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 1000ms;
     border: 2px solid transparent;
 }
 
 .glass__btn:hover {
     border: none;
-    transition: all cubic-bezier(0.4, 0, 0.2, 1) 350ms;
+    transition: background-color border color cubic-bezier(0.4, 0, 0.2, 1) 1000ms;
 }
 
 .glass__btn_1:hover {
     color: var(--component-blue-05);
-    border: 2px solid var(--component-grey-01);
+    border: 2px solid var(--component-blue-05);
 }
 
 .glass__btn_2 {
@@ -47,8 +47,9 @@
 }
 
 .glass__btn_2:hover {
-    color: var(--white);
-    border: 2px solid var(--component-grey-01);
+    font-size: bold;
+    background-color: var(--white);
+    border: 2px solid var(--component-blue-05);
 }
 
 .glass__form__wrapper {
@@ -106,6 +107,10 @@
     font-weight: bold;
 }
 
+.passwordIcon{
+    top: 0px;
+    right: 0px;
+}
 @media only screen and (max-width:1300px){
     .glass__form__image{
         display: none

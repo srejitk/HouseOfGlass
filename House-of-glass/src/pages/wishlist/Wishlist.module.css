@@ -2,7 +2,8 @@
     align-items: center;
     grid-area:content;
     max-width: 100vw;
-    height: calc(100vh - 5rem);
+    min-height: calc(100vh - 7rem);
+    height: fit-content;
     padding: 2rem;
     
 }
@@ -11,6 +12,7 @@
     max-width: 100vw;
     width: inherit;
     margin: 2rem auto;
+    padding: 0 2rem ;
 }
 .glass__subtitle {
     width: 100%;

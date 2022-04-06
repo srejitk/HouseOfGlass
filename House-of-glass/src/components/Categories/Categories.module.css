@@ -1,17 +1,11 @@
-.glass-categories {
+.glass_categories {
     width: 100vw;
     height:fit-content;
     background-color: var(--forground-color);
-    display: flex;
-
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid var(--component-grey-01);
-
 }
 
-.glass-categories-container {
+.glass_categories_container {
     background-color: var(--foreground-color-2);
     width: 90%;
     height: 80%;
@@ -22,7 +16,7 @@
     margin-bottom: 2rem;
 }
 
-.glass-categories-title {
+.glass_categories_title {
     display: flex;
     background-color: var(--foreground-color);
     flex-direction: column;
@@ -32,14 +26,7 @@
 
 }
 
-.glass-categories-title>.subtitle-1 {
+.glass_categories_title>.subtitle-1 {
     width: 50%;
-
-}
-
-.category-btn{
-    background-color: var(--component-yellow-04);
-    color: black;
-    font-weight: bold;
 
 }

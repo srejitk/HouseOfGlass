@@ -37,38 +37,40 @@ export default function Header() {
       </div>
       <div className="glass__header--links">
         <ul className="glass__header--ul flex-mid-center">
-          {!isLogged && (
+          {isLogged && (
             <Link to="/products">
               <div className="glass-links">{`Hi ${firstName}`}</div>
             </Link>
           )}
-          <Link to="/wishlist">
-            <span class="position-relative material-icons glass-links md-24">
-              favorite
-              {wishlistCount >= 1 && (
-                <div class="badge badge--icon flex-mid-center badge--round badge--small">
-                  {wishlistCount >= 1 ? wishlistCount : ""}
-                </div>
-              )}
-            </span>
-          </Link>
-          <Link to="/cart">
-            <span class="position-relative material-icons glass-links md-24">
-              shopping_cart
-              {cartCount >= 1 && (
-                <div class="badge badge--icon flex-mid-center badge--round badge--small">
-                  {cartCount >= 1 ? cartCount : ""}
-                </div>
-              )}
-            </span>
-          </Link>
-
-          {!isLogged && (
+          {isLogged && wishlistCount === 0 && (
+            <Link to="/wishlist">
+              <span class="position-relative material-icons glass-links md-24">
+                favorite
+                {wishlistCount >= 1 && (
+                  <div class="badge badge--icon flex-mid-center badge--round badge--small">
+                    {wishlistCount >= 1 ? wishlistCount : ""}
+                  </div>
+                )}
+              </span>
+            </Link>
+          )}
+          {isLogged && cartCount === 0 && (
+            <Link to="/cart">
+              <span class="position-relative material-icons glass-links md-24">
+                shopping_cart
+                {cartCount >= 1 && (
+                  <div class="badge badge--icon flex-mid-center badge--round badge--small">
+                    {cartCount >= 1 ? cartCount : ""}
+                  </div>
+                )}
+              </span>
+            </Link>
+          )}
+          {isLogged ? (
             <Link to="/" onClick={logoutHandler} className="glass-links">
               Logout
             </Link>
-          )}
-          {isLogged && (
+          ) : (
             <div>
               <Link to="/sign-in" className="glass-links ">
                 Login

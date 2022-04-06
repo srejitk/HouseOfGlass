@@ -2,6 +2,8 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { cartReducer } from "./CartReducer";
 import Toast from "components/Toast/Toast";
+import { useAuth } from "Contexts/Auth/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 
@@ -15,13 +17,9 @@ const CartProvider = ({ children }) => {
     cartDiscount: 0,
   };
   const [cartState, cartDispatch] = useReducer(cartReducer, initialCartState);
-
+  const { isLogged } = useAuth();
   const token = localStorage.getItem("Token");
-  const header = {
-    headers: {
-      authorization: token,
-    },
-  };
+  const navigate = useNavigate();
 
   const getCart = async () => {
     try {
@@ -34,36 +32,46 @@ const CartProvider = ({ children }) => {
         cartDispatch({ type: "GET_CART", payload: response?.data?.cart });
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   useEffect(() => {
     getCart();
-  }, []);
+  }, [isLogged]);
 
   const addToCart = async (product) => {
     if (cartState.cart.some((item) => item._id === product._id)) {
       incrementCart(product);
     } else {
       try {
-        const response = await axios.post(
-          "/api/user/cart",
-          { product },
-          {
-            headers: {
-              authorization: token,
-            },
+        if (isLogged) {
+          const response = await axios.post(
+            "/api/user/cart",
+            { product },
+            {
+              headers: {
+                authorization: localStorage.getItem("Token"),
+              },
+            }
+          );
+          console.log(response.status);
+          if (response.status === 201) {
+            cartDispatch({
+              type: "ADD_TO_CART",
+              payload: response?.data?.cart,
+            });
           }
-        );
-
-        if (response.status === 201) {
-          cartDispatch({ type: "ADD_TO_CART", payload: response?.data?.cart });
+          Toast({
+            type: "success",
+            message: `${product.name} is added to cart!`,
+          });
+        } else {
+          Toast({
+            type: "info",
+            message: `You need to login first.`,
+          });
         }
-        Toast({
-          type: "success",
-          message: `${product.name} will be seeing you soon!`,
-        });
       } catch (error) {
         Toast({
           type: "error",
@@ -88,13 +96,13 @@ const CartProvider = ({ children }) => {
         });
       }
       Toast({
-        type: "success",
-        message: `${product.name} will not be seeing you soon!`,
+        type: "error",
+        message: `${product.name} removed from cart. Ouch ;_;`,
       });
     } catch (error) {
       Toast({
         type: "error",
-        message: "Someone's here. Where's my glasses.",
+        message: `Someone's here. Where's my glasses. Error ${error.data.status}`,
       });
       console.log(error);
     }
@@ -116,7 +124,7 @@ const CartProvider = ({ children }) => {
       }
       Toast({
         type: "success",
-        message: `The ${product.name}'s will be seeing you soon!`,
+        message: `${product.name} Quantity Increased! The More, the merrier`,
       });
     } catch (error) {
       Toast({
@@ -128,7 +136,7 @@ const CartProvider = ({ children }) => {
   };
 
   const decrementCart = async (product) => {
-    if (cartState.cart.some((item) => item.qty === 1)) {
+    if (product.qty === 1) {
       deleteFromCart(product);
     } else {
       try {
@@ -149,7 +157,7 @@ const CartProvider = ({ children }) => {
         }
         Toast({
           type: "success",
-          message: `The ${product.name}'s will not be seeing you.`,
+          message: `${product.name}'s Quantity decreased. You wanna rethink it?`,
         });
       } catch (error) {
         Toast({
@@ -163,6 +171,7 @@ const CartProvider = ({ children }) => {
 
   const checkout = async () => {
     cartDispatch({ type: "CHECKOUT" });
+    navigate("/products");
     Toast({
       type: "success",
       message: "Congratulations! You saw it through!",

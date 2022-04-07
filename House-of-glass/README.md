@@ -5,9 +5,9 @@
 </h1>
 
 <p align="center">
-    House Of Glass E-commerce is a mock project created with the idea of providing a front-end interface for an online spectacle store. The design is easy on the eye and made with the purpose of providing users a smooth and clean interface.
+    House Of Glass E-commerce is a mock project created with the idea of providing a front-end interface for an online spectacles store. The design is easy on the eye and made with the purpose of providing users a smooth and clean interface.
   <br>
-  <a href="https://house-of-glass.vercel.app/"><strong>Explore House Of Glass - Ecommerce</strong></a>
+  <a href="https://house-of-glass.vercel.app/"><strong>Explore House Of Glass</strong></a>
   <br>
   <br>
   <a href="https://github.com/srejitk/HouseOfGlass/">Suggestions / Bug</a>
@@ -23,13 +23,13 @@
 2. For Styling House Of Glass uses my own CSS Component Libray - "Iridescent" - Github Link: <a href="https://github.com/srejitk/Iridescent">Iridescent</a>
 3. React Router
 4. JWT for authentication
-5. Vercel for hosting the website.
+5. vercel for hosting the website.
 
 ## Use the app:
-
 <p><a href="https://house-of-glass.vercel.app/">
    House Of Glass E-commerce
   </a></p>
+
 
 ## How to Install and Run the Project
 

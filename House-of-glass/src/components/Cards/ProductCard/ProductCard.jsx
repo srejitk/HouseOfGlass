@@ -3,10 +3,11 @@ import React from "react";
 import "./ProductCard.css";
 import { useCart } from "Contexts/Cart/CartContext";
 import { useWishlist } from "Contexts/Wishlist/WishlistContext";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ Item }) {
   const { name, price, discount, fastDelivery, imageUrl, rating } = Item;
-  const { addToCart, incrementCart, decrementCart } = useCart();
+  const { cart, addToCart, incrementCart, decrementCart } = useCart();
   const { wishlist, addToWishlist } = useWishlist();
 
   return (
@@ -36,19 +37,35 @@ export default function ProductCard({ Item }) {
           </div>
           <Ratings />
           <div className="container--row m-1t">
-            <button
-              onClick={() => addToCart(Item)}
-              className="btn btn--small btn--small--round"
-            >
-              Add to cart
-            </button>
-            <button
-              onClick={() => addToWishlist(Item)}
-              className="btn btn--small btn--outline--primary"
-            >
-              <span className="material-icons text--primary">bookmark</span>
-              <p className="subtitle-1 btn--text text--primary">Save</p>
-            </button>
+            {cart.find((Product) => Product._id === Item._id) ? (
+              <Link to="/cart" className="btn btn--small btn--small--round">
+                Go to cart
+              </Link>
+            ) : (
+              <button
+                onClick={() => addToCart(Item)}
+                className="btn btn--small btn--small--round"
+              >
+                Add to cart
+              </button>
+            )}
+            {wishlist.find((Product) => Product._id === Item._id) ? (
+              <button
+                onClick={() => addToWishlist(Item)}
+                className="btn btn--small btn--outline--primary"
+              >
+                <span className="material-icons text--primary">bookmark</span>
+                <p className="subtitle-1 btn--text text--primary">Saved</p>
+              </button>
+            ) : (
+              <button
+                onClick={() => addToWishlist(Item)}
+                className="btn btn--small btn--outline--primary"
+              >
+                <span className="material-icons text--primary">bookmark</span>
+                <p className="subtitle-1 btn--text text--primary">Save</p>
+              </button>
+            )}
           </div>
         </div>
       </div>

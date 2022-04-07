@@ -5,7 +5,7 @@ import EmptyState from "components/EmptyState/EmptyState";
 import styles from "./Cart.module.css";
 
 export default function Cart() {
-  const { cart, cartCount, cartSum, cartDiscount } = useCart();
+  const { cart, cartCount, cartSum, cartDiscount, checkout } = useCart();
   return (
     <main className={`${styles.cart__content} position-relative`}>
       <h3 className={`header-3 ${styles.cart__subtitle}`}>My Cart</h3>
@@ -22,7 +22,7 @@ export default function Cart() {
             <h5 className="header-5">Price Breakdown</h5>
             <div className="items--sum">
               <p className="subtitle-1">{`Price ( ${cartCount} Item )`}</p>
-              <p className="body-1">{`Rs. ${cartSum}`}</p>
+              <p className="body-1">{`Rs. ${cartSum + cartDiscount}`}</p>
             </div>
             <div className="items--discount">
               <p className="subtitle-1">Discount</p>
@@ -30,20 +30,22 @@ export default function Cart() {
             </div>
             <div className="items--total">
               <p className="subtitle-1">Total</p>
-              <p className="body-1">Rs. 5,099</p>
+              <p className="body-1">{`Rs. ${cartSum - cartDiscount}`}</p>
             </div>
             <div className="items--savings">
               <p className="subtitle-1">You've Saved</p>
-              <p className="body-1">Rs. 299</p>
+              <p className="body-1">{`Rs. ${(cartSum + 1) * cartDiscount}`}</p>
             </div>
-            <button className="btn btn--primary">Place Order </button>
+            <button className="btn btn--primary" onClick={() => checkout()}>
+              Place Order{" "}
+            </button>
           </div>
         </div>
       )}
       {!cartCount >= 1 && (
         <EmptyState
           stateTitle={"Cart is Empty"}
-          stateDesc="Khaali hai bhai"
+          stateDesc="Self care is important too you know."
           btnText="Shop now"
           icon={"shopping_cart"}
           endpoint="/products"

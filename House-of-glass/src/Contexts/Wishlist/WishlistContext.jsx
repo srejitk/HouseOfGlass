@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import { wishlistReducer } from "./WishlistReducer";
 import Toast from "components/Toast/Toast";
+import { useAuth } from "Contexts/Auth/AuthContext";
 
 const WishlistContext = createContext();
 
@@ -14,6 +15,7 @@ const WishlistProvider = ({ children }) => {
     initialWishlistState
   );
   const token = localStorage.getItem("Token");
+  const { isLogged } = useAuth();
 
   const getWishlist = async () => {
     try {
@@ -35,7 +37,7 @@ const WishlistProvider = ({ children }) => {
 
   useEffect(() => {
     getWishlist();
-  }, []);
+  }, [token]);
 
   const addToWishlist = async (product) => {
     if (wishlistState.wishlist.some((item) => item._id === product._id)) {
@@ -47,7 +49,7 @@ const WishlistProvider = ({ children }) => {
           { product },
           {
             headers: {
-              authorization: token,
+              authorization: localStorage.getItem("Token"),
             },
           }
         );
@@ -75,7 +77,7 @@ const WishlistProvider = ({ children }) => {
     try {
       const response = await axios.delete(`/api/user/wishlist/${product._id}`, {
         headers: {
-          authorization: token,
+          authorization: localStorage.getItem("Token"),
         },
       });
       if (response.status === 200) {

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import styles from "./Signup.module.css";
 import axios from "axios";
+import Toast from "components/Toast/Toast";
 
 export default function Signup() {
   const defaultData = {
@@ -14,11 +15,12 @@ export default function Signup() {
   };
 
   const [userData, setUserData] = useState(defaultData);
-  //ADD A ERROR MESSAGE TO THE UI
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleInput = (e) => {
+    e.preventDefault();
     const { value, name } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   };
@@ -26,18 +28,40 @@ export default function Signup() {
   const handleSignup = async (userData) => {
     try {
       const response = await axios.post("/api/auth/signup", userData);
-      if (response.status === 200) {
+      console.log(response.status);
+      if (response.status === 201) {
         setUserData(defaultData);
         navigate("/sign-in");
       }
     } catch (error) {
-      setError("No user exists!");
+      if (error.respose && error.response.status === 422) {
+        setError("Email already exists");
+        Toast({
+          type: "error",
+          message: `Why you trying to fool us T_T !`,
+        });
+      } else {
+        setError("Signup failed. Please Try again");
+        Toast({
+          type: "error",
+          message: `Ouch. Something Broke. !`,
+        });
+      }
     }
   };
-
-  const submitHandler = (e) => {
+  const pwdVisibiltyHandler = () => {
     e.preventDefault();
-    handleSignup(userData);
+    setShowPassword(!showPassword);
+  };
+  const submitHandler = () => {
+    e.preventDefault();
+    const { password, confirmPassword } = userData;
+    if (password === confirmPassword) {
+      handleSignup(userData);
+    } else {
+      setError("Your Passwords don't match. Try again");
+      setUserData({ ...userData, password: "", confirmPassword: "" });
+    }
   };
   return (
     <main className={`${styles.auth_content} flex-row-wrap flex-mid-center`}>
@@ -70,41 +94,75 @@ export default function Signup() {
               required
             />
           </div>
-          <div className="input__container">
+          <div className="input__container position-relative">
             <input
-              type="password"
-              placeholder="Password"
+              type={showPassword ? "text" : "password"}
               name="password"
+              placeholder="Password"
+              id="pwd1"
+              value={userData.password}
+              className={`input__field ${styles.glass__input} `}
               onChange={handleInput}
-              className={`input__field ${styles.glass__input}`}
               required
             />
+            {showPassword ? (
+              <button
+                onClick={pwdVisibiltyHandler}
+                className={`btn_action position-absolute ${styles.passwordIcon} btn--small flex-mid-center transparent-btn`}
+              >
+                <span className="material-icons">visibility_off</span>
+              </button>
+            ) : (
+              <button
+                onClick={pwdVisibiltyHandler}
+                className={`btn_action position-absolute ${styles.passwordIcon} btn--small flex-mid-center transparent-btn`}
+              >
+                <span className="material-icons">visibility</span>
+              </button>
+            )}
           </div>
-          <div className="input__container">
+          <div className="input__container position-relative">
             <input
-              type="password"
-              placeholder="Confirm your password"
-              onChange={handleInput}
+              type={showPassword ? "text" : "password"}
               name="confirmPassword"
-              className={`input__field ${styles.glass__input}`}
+              placeholder="Confirm Password"
+              id="pwd2"
+              value={userData.confirmPassword}
+              className={`input__field ${styles.glass__input} `}
+              onChange={handleInput}
               required
             />
+            {showPassword ? (
+              <button
+                onClick={pwdVisibiltyHandler}
+                className={`btn_action position-absolute ${styles.passwordIcon} btn--small flex-mid-center transparent-btn`}
+              >
+                <span className="material-icons">visibility_off</span>
+              </button>
+            ) : (
+              <button
+                onClick={pwdVisibiltyHandler}
+                className={`btn_action position-absolute ${styles.passwordIcon} btn--small flex-mid-center transparent-btn`}
+              >
+                <span className="material-icons">visibility</span>
+              </button>
+            )}
           </div>
           {error && <div className={styles.error_msg}>{error}</div>}
-          <p className="text--terms caption text--center">
+          <p className="text--terms flex-mid-center caption text--center">
             By signing up you agree to accept all terms and conditions and agree
             to abide by the platform rules
           </p>
           <button
             type="submit"
-            className="btn btn--primary btn--large glass__btn glass__btn-1"
+            className={`btn btn--primary btn--large ${styles.glass__btn} ${styles.glass__btn_1}`}
           >
             Sign up
           </button>
           <p className="subtitle-2">Already a Member?</p>
           <Link
             to="/sign-in"
-            className="btn btn--large glass__btn glass__btn-2"
+            className={`btn btn--large ${styles.glass__btn} ${styles.glass__btn_1}`}
           >
             Log In
           </Link>

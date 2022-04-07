@@ -20,7 +20,7 @@
 ## Technologies Used -
 
 1. ReactJS, CSS, Javascript.
-2. For Styling Avavya uses my own CSS Component Libray - "Ingredients" - Github Link: <a href="https://github.com/coldpigli/Ingredient">Ingredients</a>
+2. For Styling House Of Glass uses my own CSS Component Libray - "Iridescent" - Github Link: <a href="https://github.com/srejitk/Iridescent">Iridescent</a>
 3. React Router
 4. JWT for authentication
 5. vercel for hosting the website.

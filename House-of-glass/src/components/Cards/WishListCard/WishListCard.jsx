@@ -8,6 +8,11 @@ export default function WishListCard({ Item }) {
   const { wishlist, removeFromWishlist } = useWishlist();
   const { addToCart } = useCart();
 
+  const moveToCart = (Item) => {
+    addToCart(Item);
+    removeFromWishlist(Item);
+  };
+
   return (
     <div className="card outline wishlist-card card--horizontal box-shadow">
       <div className="card__contents">
@@ -25,7 +30,7 @@ export default function WishListCard({ Item }) {
         <div className="card__content--row card__footer">
           <div className="container--row">
             <button
-              onClick={() => removeFromWishlist(Item)}
+              onClick={() => moveToCart(Item)}
               className="btn btn--small btn--primary"
             >
               <span className="material-icons text">shopping_cart</span>
@@ -35,7 +40,7 @@ export default function WishListCard({ Item }) {
               onClick={() => removeFromWishlist(Item)}
               className="btn btn--small btn--outline--like"
             >
-              <span className="material-icons icon--">clear</span>
+              <span className="material-icons icon">clear</span>
               <p className="subtitle-1 btn--txt">Clear</p>
             </button>
           </div>
@@ -43,7 +48,7 @@ export default function WishListCard({ Item }) {
       </div>
       <div className="card__cover card__img--large gap20 wishlist-img image--responsive">
         <img src={imageUrl} />
-        <Ratings />
+        <Ratings rating={rating} />
       </div>
     </div>
   );

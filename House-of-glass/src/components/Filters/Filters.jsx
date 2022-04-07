@@ -99,13 +99,20 @@ export default function Filters() {
         </div>
       </div>
 
-      <div className="position-relative category-wrapper">
+      <div className={`position-relative category-wrapper `}>
         <div className="category-label-container flex-mid-center">
           <span className="material-icons">category</span>
-          <h6 className="subtitle-1">Brand</h6>
+          <h6 className="subtitle-1">Shapes</h6>
         </div>
 
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find((category) => category === "ROUND")
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="category-1">Round</label>
           <input
@@ -125,7 +132,14 @@ export default function Filters() {
             }
           />
         </div>
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find((category) => category === "RETRO")
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="category-1">Retro</label>
           <input
@@ -146,7 +160,16 @@ export default function Filters() {
           />
         </div>
 
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find(
+              (category) => category === "TRANSPARENT"
+            )
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="category-1">Transparent</label>
           <input
@@ -167,7 +190,14 @@ export default function Filters() {
           />
         </div>
 
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find((category) => category === "CATEYE")
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="category-1">Cat Eye</label>
           <input
@@ -188,7 +218,16 @@ export default function Filters() {
           />
         </div>
 
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find(
+              (category) => category === "RIMLESS"
+            )
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
           <span className="material-icons">production_quantity_limits</span>
           <label htmlFor="category-1">Rim Less</label>
           <input
@@ -210,18 +249,113 @@ export default function Filters() {
         </div>
       </div>
 
+      {/* Brands */}
+      <div className="position-relative category-wrapper">
+        <div className="category-label-container flex-mid-center">
+          <span className="material-icons">loyalty</span>
+          <h6 className="subtitle-1">Brands</h6>
+        </div>
+
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find(
+              (category) => category === "JOHNJACOBS"
+            )
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">John Jacobs</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="JOHNJACOBS"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "JOHNJACOBS"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find((category) => category === "RAYBAN")
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Ray Ban</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="RAYBAN"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "RAYBAN"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+
+        <div
+          className={`pill  align-center gap20 flex-mid-center ${
+            productState.categoryState.find(
+              (category) => category === "VINCENTCHASE"
+            )
+              ? "filter-selected"
+              : ""
+          }
+        `}
+        >
+          <span className="material-icons">production_quantity_limits</span>
+          <label htmlFor="category-1">Vincent Chase</label>
+          <input
+            type="checkbox"
+            name="CATEGORY"
+            value="VINCENTCHASE"
+            checked={
+              productState.categoryState.find(
+                (category) => category === "VINCENTCHASE"
+              )
+                ? true
+                : false
+            }
+            id="category-1"
+            onChange={(e) =>
+              productDispatch({ type: "CATEGORY", payload: e.target.value })
+            }
+          />
+        </div>
+      </div>
+
       <div className="position-relative category-wrapper">
         <div className="category-label-container flex-mid-center">
           <span className="material-icons">linear_scale</span>
           <h6 className="subtitle-1">Range</h6>
         </div>
 
-        <div className="pill  align-center gap20 flex-mid-center">
+        <div className="range-pill  align-center gap20 flex-column-wrap flex-mid-center">
           <input
             id="price-range"
             type="range"
             value={productState.minPrice}
-            max={12000}
+            max={20000}
             min={1000}
             step={1000}
             list="steps"
@@ -230,7 +364,7 @@ export default function Filters() {
             }
           ></input>
 
-          <datalist id="steps">
+          <datalist className="flex-row-wrap data-labels" id="steps">
             <option key={1000} label="1K" value={1000}></option>
             <option key={3000} label="3K" value={3000}></option>
             <option key={6000} label="6K" value={6000}></option>
@@ -238,7 +372,6 @@ export default function Filters() {
             <option key={12000} label="12K" value={12000}></option>
             <option key={15000} label="15K" value={15000}></option>
           </datalist>
-          <label>{productState.minPrice}</label>
         </div>
       </div>
     </div>

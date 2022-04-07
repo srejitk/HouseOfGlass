@@ -1,0 +1,104 @@
+.glass_navbar {
+  grid-area: navbar;
+  width: 100vw;
+  max-width: 100vw;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--white);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.glass_logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px 16px;
+  margin-left: 2rem;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.material-icons {
+  font: 24px;
+  border-radius: 16px;
+  padding: 10px;
+}
+
+.glass_hero_text {
+  align-self: center;
+  padding: 0.5rem 1rem;
+  font-weight: 700 !important;
+}
+
+.glass_links {
+  margin: 1rem;
+  font-size: 16px;
+  font-weight: bold;
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 64px;
+}
+
+.glass_links:hover {
+  background-color: var(--component-blue-01);
+}
+
+.glass_links:active {
+  background-color: var(--component-blue-02);
+}
+
+.glass_search_input {
+  background-color: var(--white);
+  outline: 2px solid var(--component-grey-05);
+  width: 600px;
+  margin-left: 4rem;
+  border-radius: 64px;
+}
+
+.glass_search_icon {
+  background-color: white;
+}
+
+.header_badge {
+  background-color: var(--component-blue-02) !important;
+  width: 20px;
+  height: 20px;
+  font-size: 1rem !important;
+}
+@media only screen and (max-width: 1401px) {
+  .glass_navbar {
+    height: 10rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .glass_navbar {
+    grid-area: navbar;
+    height: 15rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .glass_logo {
+    width: 100%;
+  }
+
+  .glass_search,
+  .glass_search_input,
+  .glass_search_icon {
+    display: none !important;
+  }
+
+  .glass__header__links {
+    width: 100%;
+  }
+}

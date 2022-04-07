@@ -355,7 +355,7 @@ export default function Filters() {
             id="price-range"
             type="range"
             value={productState.minPrice}
-            max={12000}
+            max={20000}
             min={1000}
             step={1000}
             list="steps"

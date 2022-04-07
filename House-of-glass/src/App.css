@@ -169,6 +169,11 @@
   width: 77vw;
 }
 
+.grid_center {
+  align-items: center;
+  justify-content: center;
+}
+
 input:checked + .pill {
   background-color: black;
 }

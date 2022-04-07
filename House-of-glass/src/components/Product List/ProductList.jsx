@@ -26,7 +26,11 @@ export default function ProductList() {
         <h6 className="subtitle-1">Products found : {products?.length} </h6>
       </div>
       {products?.length >= 1 && (
-        <div className="products-list-container flex--row--wrap">
+        <div
+          className={`products-list-container ${
+            products?.length === 0 ? grid_center : ""
+          } flex--row--wrap`}
+        >
           {products.map((item) => (
             <ProductCard key={item._id} Item={item} />
           ))}

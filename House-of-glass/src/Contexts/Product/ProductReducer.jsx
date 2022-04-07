@@ -25,7 +25,6 @@ export const ProductReducer = (state, action) => {
       } else {
         return { ...state, categoryState: [...categoryState, action.payload] };
       }
-      console.log(categoryState);
     case "PRICERANGE":
       return { ...state, minPrice: action.payload };
     case "CLEAR":

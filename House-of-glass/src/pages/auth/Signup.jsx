@@ -28,7 +28,6 @@ export default function Signup() {
   const handleSignup = async (userData) => {
     try {
       const response = await axios.post("/api/auth/signup", userData);
-      console.log(response.status);
       if (response.status === 201) {
         setUserData(defaultData);
         navigate("/sign-in");

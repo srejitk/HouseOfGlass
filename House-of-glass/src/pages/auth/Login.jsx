@@ -14,7 +14,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const { isLogged, setIsLogged, userDetails, setUserDetails } = useAuth();
-  const guest = { email: "adarshbalika@gmail.com", password: "adarshbalika" };
+  const guest = { email: "maverick@topgun.com", password: "maverick" };
   const handleInput = (e) => {
     const { value, name } = e.target;
     setLoginData((prev) => ({ ...prev, [name]: value }));

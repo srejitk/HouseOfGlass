@@ -55,7 +55,7 @@ const CartProvider = ({ children }) => {
               },
             }
           );
-          console.log(response.status);
+
           if (response.status === 201) {
             cartDispatch({
               type: "ADD_TO_CART",
@@ -77,7 +77,6 @@ const CartProvider = ({ children }) => {
           type: "error",
           message: "Something broke. Where's my glasses.",
         });
-        console.log(error);
       }
     }
   };
@@ -104,7 +103,6 @@ const CartProvider = ({ children }) => {
         type: "error",
         message: `Someone's here. Where's my glasses. Error ${error.data.status}`,
       });
-      console.log(error);
     }
   };
 
@@ -131,7 +129,6 @@ const CartProvider = ({ children }) => {
         type: "error",
         message: "Uh-Oh!. Where's my glasses.",
       });
-      console.log(error);
     }
   };
 
@@ -164,7 +161,6 @@ const CartProvider = ({ children }) => {
           type: "error",
           message: "Ouch!. Where's my glasses.",
         });
-        console.log(error);
       }
     }
   };

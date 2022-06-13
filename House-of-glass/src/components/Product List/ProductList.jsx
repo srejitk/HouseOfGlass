@@ -16,7 +16,9 @@ export default function ProductList() {
       productDispatch({ type: "CLEAR" });
     }
   };
-  useEffect(() => filteredProducts(category), []);
+  useEffect(() => {
+    filteredProducts(category);
+  }, []);
 
   return (
     <div className="content flex--row--wrap products-container">

@@ -1,16 +1,6 @@
-.glass_navbar {
-  grid-area: navbar;
-  width: 100vw;
-  max-width: 100vw;
-  height: 6rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: var(--white);
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 5;
+/* TODO: ADD SEARCH FUNCTIONALITY */
+.glass_search {
+  display: none !important;
 }
 
 .glass_logo {
@@ -73,18 +63,12 @@
   height: 20px;
   font-size: 1rem !important;
 }
-@media only screen and (max-width: 1401px) {
-  .glass_navbar {
-    height: 10rem;
-  }
-}
 
 @media only screen and (max-width: 768px) {
-  .glass_navbar {
+  .glass_nav {
     grid-area: navbar;
-    height: 15rem;
-    display: flex;
-    flex-direction: row;
+    height: 5rem;
+    flex-wrap: nowrap;
     align-items: flex-start;
   }
 

@@ -10,9 +10,9 @@ export default function Header() {
   const { firstName } = userDetails;
   const { cartCount } = useCart();
   const { wishlistCount } = useWishlist();
-  console.log(isLogged);
+
   return (
-    <header className={`${styles.glass_navbar} box-shadow`}>
+    <header className={`glass_nav box-shadow`}>
       <Link to="/" className={styles.glass_logo}>
         <img
           src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1649248259/House%20Of%20Glass/House_Of_Cards_t35oos.png"
@@ -48,12 +48,12 @@ export default function Header() {
           {isLogged && wishlistCount > 0 && (
             <Link to="/wishlist">
               <span
-                class={`position-relative material-icons ${styles.glass_links} md-24`}
+                className={`position-relative material-icons ${styles.glass_links} md-24`}
               >
                 favorite
                 {wishlistCount >= 1 && (
                   <div
-                    class={`${styles.header_badge} badge badge--icon flex-mid-center badge--round badge--small`}
+                    className={`${styles.header_badge} badge badge--icon flex-mid-center badge--round badge--small`}
                   >
                     {wishlistCount >= 1 ? wishlistCount : ""}
                   </div>
@@ -64,12 +64,12 @@ export default function Header() {
           {isLogged && cartCount > 0 && (
             <Link to="/cart">
               <span
-                class={`position-relative material-icons ${styles.glass_links} md-24`}
+                className={`position-relative material-icons ${styles.glass_links} md-24`}
               >
                 shopping_cart
                 {cartCount >= 1 && (
                   <div
-                    class={`badge badge--icon flex-mid-center badge--round badge--small ${styles.header_badge} `}
+                    className={`badge badge--icon flex-mid-center badge--round badge--small ${styles.header_badge} `}
                   >
                     {cartCount >= 1 ? cartCount : ""}
                   </div>

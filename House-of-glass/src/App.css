@@ -222,11 +222,19 @@ input:checked + .pill {
   justify-content: space-around;
 }
 
-@media only screen and (max-width: 1400px) {
-  .App {
-    grid-template-rows: 10rem auto 12.5rem;
-    width: 100%;
-  }
+.glass_nav {
+  grid-area: navbar;
+  width: 100vw;
+  max-width: 100vw;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--white);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
 }
 
 @media only screen and (max-width: 768px) {

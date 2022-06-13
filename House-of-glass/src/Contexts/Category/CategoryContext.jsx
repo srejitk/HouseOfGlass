@@ -17,7 +17,6 @@ const CategoryProvider = ({ children }) => {
       const { data, status } = await axios.get("/api/categories");
       if (status === 200) {
         setCategoryList(() => data?.categories);
-        console.log("Cats are here");
       } else {
         Toast({
           type: "error",
@@ -25,7 +24,7 @@ const CategoryProvider = ({ children }) => {
         });
       }
     } catch (e) {
-      console.error("error", e);
+      console.error("Error", e);
     }
   };
 

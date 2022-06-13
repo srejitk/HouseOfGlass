@@ -48,12 +48,12 @@ export default function Header() {
           {isLogged && wishlistCount > 0 && (
             <Link to="/wishlist">
               <span
-                class={`position-relative material-icons ${styles.glass_links} md-24`}
+                className={`position-relative material-icons ${styles.glass_links} md-24`}
               >
                 favorite
                 {wishlistCount >= 1 && (
                   <div
-                    class={`${styles.header_badge} badge badge--icon flex-mid-center badge--round badge--small`}
+                    className={`${styles.header_badge} badge badge--icon flex-mid-center badge--round badge--small`}
                   >
                     {wishlistCount >= 1 ? wishlistCount : ""}
                   </div>
@@ -64,12 +64,12 @@ export default function Header() {
           {isLogged && cartCount > 0 && (
             <Link to="/cart">
               <span
-                class={`position-relative material-icons ${styles.glass_links} md-24`}
+                className={`position-relative material-icons ${styles.glass_links} md-24`}
               >
                 shopping_cart
                 {cartCount >= 1 && (
                   <div
-                    class={`badge badge--icon flex-mid-center badge--round badge--small ${styles.header_badge} `}
+                    className={`badge badge--icon flex-mid-center badge--round badge--small ${styles.header_badge} `}
                   >
                     {cartCount >= 1 ? cartCount : ""}
                   </div>

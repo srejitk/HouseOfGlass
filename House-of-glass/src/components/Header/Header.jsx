@@ -12,7 +12,7 @@ export default function Header() {
   const { wishlistCount } = useWishlist();
 
   return (
-    <header className={`${styles.glass_nav} box-shadow`}>
+    <header className={`glass_nav box-shadow`}>
       <Link to="/" className={styles.glass_logo}>
         <img
           src="https://res.cloudinary.com/dkqrmlxlg/image/upload/v1649248259/House%20Of%20Glass/House_Of_Cards_t35oos.png"

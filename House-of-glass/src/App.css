@@ -222,6 +222,21 @@ input:checked + .pill {
   justify-content: space-around;
 }
 
+.glass_nav {
+  grid-area: navbar;
+  width: 100vw;
+  max-width: 100vw;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--white);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
 @media only screen and (max-width: 768px) {
   .App {
     grid-template-rows: 15rem auto 12.5rem;

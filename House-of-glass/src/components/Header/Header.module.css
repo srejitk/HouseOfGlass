@@ -1,4 +1,4 @@
-.glass_navbar {
+.glass_nav {
   grid-area: navbar;
   width: 100vw;
   max-width: 100vw;
@@ -79,7 +79,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .glass_navbar {
+  .glass_nav {
     grid-area: navbar;
     height: 5rem;
     flex-wrap: nowrap;

@@ -10,7 +10,7 @@ export default function Header() {
   const { firstName } = userDetails;
   const { cartCount } = useCart();
   const { wishlistCount } = useWishlist();
-  console.log(isLogged);
+
   return (
     <header className={`${styles.glass_navbar} box-shadow`}>
       <Link to="/" className={styles.glass_logo}>

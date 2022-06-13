@@ -76,6 +76,9 @@
 @media only screen and (max-width: 1401px) {
   .glass_navbar {
     height: 10rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
   }
 }
 

@@ -222,13 +222,6 @@ input:checked + .pill {
   justify-content: space-around;
 }
 
-@media only screen and (max-width: 1400px) {
-  .App {
-    grid-template-rows: 10rem auto 12.5rem;
-    width: 100%;
-  }
-}
-
 @media only screen and (max-width: 768px) {
   .App {
     grid-template-rows: 15rem auto 12.5rem;

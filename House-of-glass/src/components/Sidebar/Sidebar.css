@@ -1,0 +1,36 @@
+.profile-sidebar {
+  width: 20rem;
+  outline: 2px solid red;
+  height: 100%;
+  display: flex;
+  padding: 8px 1rem;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.sidebar-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 8px 1rem;
+  color: var(--component-blue-05);
+  background-color: white;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+
+.sidebar-item:hover {
+  filter: brightness(0.95);
+}
+
+.sidebar-hero {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 0 1rem;
+}

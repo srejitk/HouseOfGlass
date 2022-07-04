@@ -2,6 +2,7 @@ import React from "react";
 import Ratings from "../../Ratings/Ratings";
 import { useWishlist } from "Contexts/Wishlist/WishlistContext";
 import { useCart } from "Contexts/Cart/CartContext";
+import "./WishlListCard.css";
 
 export default function WishListCard({ Item }) {
   const { name, price, discount, fastDelivery, imageUrl, rating } = Item;
@@ -14,7 +15,7 @@ export default function WishListCard({ Item }) {
   };
 
   return (
-    <div className="card outline wishlist-card card--horizontal box-shadow">
+    <div className="card  card--horizontal wishlist-card box-shadow">
       <div className="card__contents">
         <div className="card__content--column card__text">
           <h5 className="header-5">{name}</h5>

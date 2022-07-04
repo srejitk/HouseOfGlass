@@ -3,6 +3,7 @@ import CartCard from "components/Cards/CartCard/CartCard";
 import { useCart } from "Contexts/Cart/CartContext";
 import EmptyState from "components/EmptyState/EmptyState";
 import styles from "./Cart.module.css";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cart, cartCount, cartSum, cartDiscount, checkout } = useCart();
@@ -36,9 +37,11 @@ export default function Cart() {
               <p className="subtitle-1">You've Saved</p>
               <p className="body-1">{`Rs. ${(cartSum + 1) * cartDiscount}`}</p>
             </div>
-            <button className="btn btn--primary" onClick={() => checkout()}>
-              Place Order{" "}
-            </button>
+            <Link to="/checkout">
+              <button className="btn btn--primary" onClick={() => checkout()}>
+                Place Order{" "}
+              </button>
+            </Link>
           </div>
         </div>
       )}

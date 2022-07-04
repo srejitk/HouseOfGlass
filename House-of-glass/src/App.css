@@ -4,6 +4,10 @@
   --font-primary: #16162e;
   --font-gray: #202020;
   --font-gray-light: #eef0f1;
+  --HOVER_BG: transparent;
+  --HOVER_BG_ACTIVE: hsla(0, 0%, 80%, 0.3);
+  --BORDER: 2px solid var(--component-grey-01);
+  --TEXT: hsla(0, 0%, 0%, 1);
 
   /* backgorund colors  */
   --background-light: #c5dcfa;
@@ -190,16 +194,16 @@ input:checked + .pill {
 }
 
 .btn_action {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: var(--HOVER_BG);
   color: var(--TEXT);
   border-radius: 50px;
 }
 
 .btn_action:hover {
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: var(--HOVER_BG_ACTIVE);
   color: var(--TEXT);
   border: var(--BORDER);
@@ -229,7 +233,7 @@ input:checked + .pill {
   height: 5rem;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   background-color: var(--white);
   align-items: center;
   position: sticky;
@@ -237,10 +241,103 @@ input:checked + .pill {
   z-index: 5;
 }
 
+.m1t {
+  margin-top: 1rem;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.my-auto {
+  margin: auto 0;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
 @media only screen and (max-width: 768px) {
   .App {
-    grid-template-rows: 15rem auto 12.5rem;
+    grid-template-rows: 10rem auto 12.5rem;
     width: 100%;
+  }
+
+  .glass_nav {
+    height: 15rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .products-container {

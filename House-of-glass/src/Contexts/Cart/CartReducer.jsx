@@ -23,8 +23,6 @@ export const cartReducer = (state, { type, payload }) => {
           0
         ),
       };
-    case "CHECKOUT":
-      return initialCartState;
     default:
       return state;
   }

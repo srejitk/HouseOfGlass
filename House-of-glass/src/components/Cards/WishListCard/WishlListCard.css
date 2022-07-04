@@ -1,6 +1,10 @@
-@media only screen and (max-width:768px) {
-    .wishlist-img{
-        display: none;
-    }
-    
+.wishlist-card {
+  min-width: 25 trem;
+  margin: 1rem 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .wishlist-img {
+    display: none;
+  }
 }

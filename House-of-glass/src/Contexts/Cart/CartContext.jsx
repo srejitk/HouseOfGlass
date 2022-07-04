@@ -166,8 +166,7 @@ const CartProvider = ({ children }) => {
   };
 
   const checkout = async () => {
-    cartDispatch({ type: "CHECKOUT" });
-    navigate("/products");
+    navigate("/checkout");
     Toast({
       type: "success",
       message: "Congratulations! You saw it through!",

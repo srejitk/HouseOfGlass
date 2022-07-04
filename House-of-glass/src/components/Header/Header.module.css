@@ -1,7 +1,7 @@
 /* TODO: ADD SEARCH FUNCTIONALITY */
-.glass_search {
+/* .glass_search {
   display: none !important;
-}
+} */
 
 .glass_logo {
   display: flex;
@@ -35,6 +35,7 @@
   width: fit-content;
   padding: 0.5rem;
   border-radius: 64px;
+  order: 3;
 }
 
 .glass_links:hover {
@@ -47,14 +48,20 @@
 
 .glass_search_input {
   background-color: var(--white);
-  outline: 2px solid var(--component-grey-05);
-  width: 600px;
-  margin-left: 4rem;
-  border-radius: 64px;
+  border: 2px solid var(--component-grey-03);
+  width: 100%;
+  border-radius: 6px;
+  order: 2;
+}
+
+.glass_search {
+  order: 2;
+  width: 100%;
 }
 
 .glass_search_icon {
   background-color: white;
+  order: 2;
 }
 
 .header_badge {
@@ -64,22 +71,22 @@
   font-size: 1rem !important;
 }
 
-@media only screen and (max-width: 768px) {
-  .glass_nav {
-    grid-area: navbar;
-    height: 5rem;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-  }
-
+@media only screen and (min-width: 768px) {
   .glass_logo {
     width: 100%;
   }
 
-  .glass_search,
-  .glass_search_input,
-  .glass_search_icon {
-    display: none !important;
+  .glass_search {
+    order: 3;
+    width: 100%;
+    outline: 2px solid;
+  }
+
+  .glass_search_input {
+    background-color: var(--white);
+    border: 2px solid var(--component-grey-03);
+    width: 100%;
+    border-radius: 6px;
   }
 
   .glass__header__links {

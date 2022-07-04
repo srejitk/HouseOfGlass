@@ -6,7 +6,7 @@ import { useWishlist } from "Contexts/Wishlist/WishlistContext";
 import { Link } from "react-router-dom";
 
 export default function ProductCard({ Item }) {
-  const { name, price, discount, fastDelivery, imageUrl, rating } = Item;
+  const { price, discount, fastDelivery, imageUrl, rating } = Item;
   const { cart, addToCart, incrementCart, decrementCart } = useCart();
   const { wishlist, addToWishlist } = useWishlist();
 
@@ -25,7 +25,7 @@ export default function ProductCard({ Item }) {
       </div>
       <div className="card__contents--vertical">
         <div className="card__content card__text--vertical">
-          <h6 className="header-6">{name}</h6>
+          <h6 className="header-6">{Item?.name}</h6>
           <div className="container--row">
             <p className="subtitle-1 item--sale text--primary">{price}</p>
             <p className="body-2 item--price">

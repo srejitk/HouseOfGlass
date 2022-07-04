@@ -21,11 +21,12 @@ export default function Header() {
 
         <h3 className={`${styles.glass_hero_text} header-5`}>House Of Glass</h3>
       </Link>
+
       <div className={`${styles.glass_search} input__container`}>
         <input
           type="search"
           className={`input__field ${styles.glass_search_input} br-24 position-relative`}
-          placeholder="What today?"
+          placeholder="Search for glasses..."
           name="searchbar"
           id="search-bar"
           autoComplete="on"
@@ -91,6 +92,8 @@ export default function Header() {
               </Link>
             </div>
           )}
+          <Link to="/profile">Profile</Link>
+          <Link to="/checkout">Checkout</Link>
         </ul>
       </div>
     </header>

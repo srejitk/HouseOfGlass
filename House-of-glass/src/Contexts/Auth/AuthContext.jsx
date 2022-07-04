@@ -7,12 +7,22 @@ const useAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate;
+  const initialAddress = {
+    id: "",
+    name: "",
+    street: "",
+    pin: "",
+    number: "",
+  };
+  const [form, setForm] = useState(initialAddress);
   const [isLogged, setIsLogged] = useState(false);
   const token = localStorage.getItem("Token");
+  const [addressList, setAddressList] = useState([]);
   const [userDetails, setUserDetails] = useState({
     cartList: [],
     wishList: [],
     firstName: "",
+    address: {},
   });
 
   useEffect(() => {
@@ -35,6 +45,11 @@ const AuthProvider = ({ children }) => {
         userDetails,
         setUserDetails,
         logoutHandler,
+        addressList,
+        setAddressList,
+        form,
+        setForm,
+        initialAddress,
       }}
     >
       {children}

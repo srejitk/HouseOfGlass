@@ -1,0 +1,14 @@
+.added-address {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 6px;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 2px solid var(--component-grey-01);
+  margin: 1rem 0;
+  position: relative;
+  width: 45%;
+  min-width: 20rem;
+  min-height: 10rem;
+  margin: 1rem;
+}

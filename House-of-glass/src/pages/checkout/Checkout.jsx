@@ -1,16 +1,37 @@
-import CategoryCard from "components/Cards/CategoryCard/CategoryCard";
-import ProductCard from "components/Cards/ProductCard/ProductCard";
 import WishListCard from "components/Cards/WishListCard/WishListCard";
 import { useCart } from "Contexts/Cart/CartContext";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import "./Checkout.css";
+import { v4 } from "uuid";
+import { Modal } from "components/Modal/Modal";
+import { AddressModal } from "components/AddressModal/AddressModal";
+import { AddressCard } from "components/Cards/AddressCard/AddressCard";
+import { useAuth } from "Contexts/Auth/AuthContext";
 
 export const Checkout = () => {
-  const [form, setForm] = useState({});
   const { cart, cartCount, cartDiscount, cartSum } = useCart();
-  const [addressList, setAddressList] = useState([]);
+  const {
+    userDetails,
+    setUserDetails,
+    addressList,
+    setAddressList,
+    initialAddress,
+    form,
+    setForm,
+  } = useAuth();
+  const [expandAddress, setExpandAddress] = useState(false);
+  const [expandItems, setExpandItems] = useState(false);
   const navigate = useNavigate();
+  const defaultForm = {
+    id: "",
+    name: "Dr. Stephen Strange",
+    street: "177A Bleecker Street, New York",
+    pin: "10012-1406",
+    number: "6669996066",
+  };
+  const [showModal, setShowModal] = useState(false);
 
   const loadScript = async (url) => {
     return new Promise((resolve) => {
@@ -29,7 +50,10 @@ export const Checkout = () => {
       "https://checkout.razorpay.com/v1/checkout.js"
     );
     if (!res) {
-      Toast("Razarpay Payment failed to load,check your connection", "error");
+      toast.error(
+        "Razarpay Payment failed to load,check your connection",
+        "error"
+      );
       return;
     }
 
@@ -38,15 +62,15 @@ export const Checkout = () => {
       currency: "INR",
       name: "House Of Glass",
       description: "Thankyou for shopping",
-      amount: cartSum * 100,
+      amount: +cartSum * 100,
       image:
         "https://ik.imagekit.io/ecomdiagonalley/DiagonAlley/Logo/DiagonAlleyLogo_bLzTQ8w0b.png?ik-sdk-version=javascript-1.4.3&updatedAt=1649227594828",
 
       handler: function (response) {
         if (response.razorpay_payment_id) {
-          //   Toast("Payment successful, order placed", "success");
+          toast.success("Payment successful, order placed", "success");
           navigate("/", { replace: true });
-          //   cartDispatch({ type: "REMOVE_FROM_CART", payload: [] });
+          // cartDispatch({ type: "CLEAR" });
         }
       },
 
@@ -58,27 +82,108 @@ export const Checkout = () => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
+
   return (
     <div className="checkout-wrapper container">
       <div className={`checkout-conditions`}>
         <div className="title-section">
           <h5 className="subtitle-1">{`Checkout`}</h5>
         </div>
-        <div className="accordian-parent ">
+        <div
+          onClick={() => setExpandItems((prev) => !prev)}
+          className={`accordian-parent ${
+            cart.length >= 1 && expandItems ? "showAddressCards" : ""
+          }  ${expandItems ? "expandCard" : ""} `}
+        >
           <div className="tab-overview">
             <p className="subtitle-1">Order Overview</p>
-            <span className="material-icons">checked</span>
+            {cart?.length >= 1 ? (
+              <span
+                className="material-icons "
+                style={{ color: "var(--component-blue-05)" }}
+              >
+                check_circle
+              </span>
+            ) : (
+              <span className="material-icons">radio_button_unchecked</span>
+            )}
           </div>
-          <div className="item-overview-list"></div>
-          {cart?.map((product) => (
-            <WishListCard key={product?.id} Item={product} />
-          ))}
+          {expandItems && (
+            <div className="flex flex-row items-center justify-start flex-row checkout-address-list">
+              <div className="address_card_wrapper">
+                {cart?.map((item) => {
+                  return <WishListCard key={item?.id} Item={item} />;
+                })}
+              </div>
+            </div>
+          )}
         </div>
-        <div className="accordian-parent">
+        <div
+          onClick={() => setExpandAddress((prev) => !prev)}
+          className={`accordian-parent flex flex-col ${
+            addressList.length >= 1 && expandAddress ? "showAddressCards" : ""
+          }  ${expandAddress ? "expandCard" : ""}`}
+        >
           <div className="tab-overview">
             <p className="subtitle-1">Address Overview</p>
-            <span className="material-icons">checked</span>
+            {userDetails?.address?.id ? (
+              <span
+                className="material-icons "
+                style={{ color: "var(--component-blue-05)" }}
+              >
+                check_circle
+              </span>
+            ) : (
+              <span className="material-icons">radio_button_unchecked</span>
+            )}
           </div>
+          {expandAddress && (
+            <div className="flex flex-row items-center justify-start flex-row checkout-address-list">
+              <div className="address_card_wrapper">
+                {addressList?.map((address) => {
+                  return (
+                    <AddressCard
+                      key={address?.id}
+                      address={address}
+                      setShowModal={setShowModal}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          )}
+          {expandAddress ? (
+            <>
+              <p className="subtitle-2 flex w-full">
+                Please add a address to continue
+              </p>
+
+              <div className="flex w-full items-center justify-start gap20 mt-auto">
+                {" "}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowModal(true);
+                  }}
+                  className="btn btn--primary"
+                >
+                  Add Address
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setAddressList((prev) => [
+                      ...prev,
+                      { ...defaultForm, id: v4() },
+                    ]);
+                  }}
+                  className="btn btn--outline--primary"
+                >
+                  Add Demo Address
+                </button>
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
       <div className="checkout-summary-card">
@@ -125,6 +230,11 @@ export const Checkout = () => {
           <button className="btn btn--primary full-width m1t">Pay</button>
         </div>
       </div> */}
+      {showModal && (
+        <Modal openModal={showModal} setOpenModal={setShowModal}>
+          <AddressModal showModal={showModal} setShowModal={setShowModal} />
+        </Modal>
+      )}
     </div>
   );
 };

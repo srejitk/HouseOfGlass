@@ -15,7 +15,7 @@
 }
 
 .checkout-conditions {
-  width: calc(100% - 20rem);
+  width: calc(100% - 40rem);
 }
 
 .accordian-parent {
@@ -30,10 +30,6 @@
   justify-content: flex-start;
   align-items: center;
   margin: 2rem 0;
-}
-
-.accordian-parent:hover {
-  height: 30rem;
 }
 
 .tab-overview {
@@ -51,6 +47,40 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
+}
+
+.expandCard {
+  min-height: 12rem;
+}
+
+.showAddressCards {
+  min-height: 25rem;
+}
+
+.expandCard .checkout-address-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: fit-content;
+  padding: 0 1rem;
+}
+
+.address_card_wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.order_card_wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  width: 100%;
+  overflow-x: scroll;
+  outline: 2px solid red;
 }
 
 @media only screen and (max-width: 768px) {
